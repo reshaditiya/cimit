@@ -1,5 +1,3 @@
-'use client';
-
 import AccountBtn from './account-btn';
 import { Button } from './ui/button';
 
