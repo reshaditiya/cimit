@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { montserrat } from '@/lib/font';
+import { montserrat } from '@/lib/fonts';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
