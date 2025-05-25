@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react';
-import { montserrat } from '../src/lib/font';
+import { montserrat } from '../src/lib/fonts';
 import '../src/app/globals.css';
 
 const preview: Preview = {
