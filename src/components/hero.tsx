@@ -14,7 +14,7 @@ export default function Hero({
         <p>Shrink ‘em, save ‘em, and share ‘em—without the hassle.</p>
       </div>
       <HeroForm onSubmit={onSubmit} />
-      <Ripple />
+      <Ripple effectClassName='top-[60px] left-[110px] lg:top-[118px] lg:left-[190px]' />
     </div>
   );
 }
