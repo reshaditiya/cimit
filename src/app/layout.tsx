@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { montserrat } from '@/lib/fonts';
+import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -13,8 +14,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={montserrat.variable}>
-      <body className="font-sans">{children}</body>
+    <html lang="en" className={montserrat.variable} suppressHydrationWarning>
+      <body className="font-sans">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
