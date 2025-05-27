@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react';
 import { montserrat } from '../src/lib/fonts';
+import { ThemeProvider } from '../src/components/theme-provider';
 import '../src/app/globals.css';
 
 const preview: Preview = {
@@ -12,14 +13,35 @@ const preview: Preview = {
     },
   },
   decorators: [
-    (Story) => (
-      <div className={montserrat.variable}>
-        <div className="font-sans">
-          <Story />
+    (Story, context) => (
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+        forcedTheme={context.globals.theme}
+      >
+        <div className={montserrat.variable}>
+          <div className="font-sans">
+            <Story />
+          </div>
         </div>
-      </div>
+      </ThemeProvider>
     ),
   ],
+  globalTypes: {
+    theme: {
+      name: 'Theme',
+      description: 'Global theme for components',
+      defaultValue: 'light',
+      toolbar: {
+        title: 'Theme',
+        icon: 'circlehollow',
+        items: ['light', 'dark'],
+        dynamicTitle: true,
+      },
+    },
+  },
 };
 
 export default preview;
