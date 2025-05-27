@@ -2,6 +2,8 @@ import type { Preview } from '@storybook/react';
 import { montserrat } from '../src/lib/fonts';
 import { ThemeProvider } from '../src/components/theme-provider';
 import { StorybookProvider } from '../src/components/storybook-provider';
+import { NextIntlClientProvider } from 'next-intl';
+import defaultMessages from '../public/locales/en.json';
 import '../src/app/globals.css';
 
 const preview: Preview = {
@@ -23,11 +25,16 @@ const preview: Preview = {
         forcedTheme={context.globals.theme}
       >
         <StorybookProvider context={context}>
-          <div className={montserrat.variable}>
-            <div className="font-sans">
-              <Story />
+          <NextIntlClientProvider
+            locale="en"
+            messages={defaultMessages}
+          >
+            <div className={montserrat.variable}>
+              <div className="font-sans">
+                <Story />
+              </div>
             </div>
-          </div>
+          </NextIntlClientProvider>
         </StorybookProvider>
       </ThemeProvider>
     ),

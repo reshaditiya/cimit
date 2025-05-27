@@ -1,6 +1,7 @@
 import type { VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 import { Button, buttonVariants } from './ui/button';
+import { useTranslations } from 'next-intl';
 
 export default function AccountBtn({
   variant = 'secondary',
@@ -9,9 +10,11 @@ export default function AccountBtn({
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
   }) {
+  const t = useTranslations('account-btn');
+
   return (
     <Button variant={variant} {...props}>
-      anonymous
+      {t('anonymous')}
     </Button>
   );
 }

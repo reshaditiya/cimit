@@ -14,6 +14,7 @@ import {
   FormMessage,
 } from './ui/form';
 import { TLinkShortForm } from '@/lib/types';
+import { useTranslations } from 'next-intl';
 
 export default function HeroForm({
   onSubmit = () => {},
@@ -27,6 +28,7 @@ export default function HeroForm({
       longLink: '',
     },
   });
+  const t = useTranslations('hero-form');
 
   useEffect(() => {
     if (inputLinkRef.current) {
@@ -47,7 +49,7 @@ export default function HeroForm({
             <FormItem>
               <Input
                 {...field}
-                placeholder="paste your loooong url here...."
+                placeholder="{t('paste-long-form')}"
                 className="max-w-md"
                 autoComplete="off"
                 autoCorrect="off"
@@ -55,13 +57,13 @@ export default function HeroForm({
                 spellCheck="false"
               />
               <FormDescription className="text-primary/80">
-                u want more options????, yea u can edit that later.
+                {t('more-options')}
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">shrnk it</Button>
+        <Button type="submit">{t('shrink-it')}</Button>
       </form>
     </Form>
   );

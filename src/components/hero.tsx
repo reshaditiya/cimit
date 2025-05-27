@@ -5,6 +5,7 @@ import HeroForm from './hero-form';
 import { Ripple } from './magicui/ripple';
 import { useTheme } from 'next-themes';
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 
 export default function Hero({
   onSubmit = () => {},
@@ -12,6 +13,7 @@ export default function Hero({
   onSubmit?: (params: TLinkShortForm) => void;
 }) {
   const { theme } = useTheme();
+  const t = useTranslations('hero');
   const reversedTheme = theme === 'dark' ? 'light' : 'dark';
 
   return (
@@ -23,7 +25,7 @@ export default function Hero({
     >
       <div>
         <h1 className="text-5xl font-black lg:text-7xl">cimit.</h1>
-        <p>Shrink ‘em, save ‘em, and share ‘em—without the hassle.</p>
+        <p>{t('description')}</p>
       </div>
       <HeroForm onSubmit={onSubmit} />
       <Ripple effectClassName="top-[60px] left-[110px] lg:top-[118px] lg:left-[190px]" />

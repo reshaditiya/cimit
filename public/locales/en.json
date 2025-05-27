@@ -1,0 +1,20 @@
+{
+  "hero": {
+    "description": "Shrink ‘em, save ‘em, and share ‘em—without the hassle."
+  },
+  "account-btn": {
+    "anonymous": "anonymous"
+  },
+  "footer": {
+    "created-by": "created by <personalLink></personalLink>."
+  },
+  "hero-form": {
+    "more-options": "u want more options????, yea u can edit that later.",
+    "paste-long-form": "paste your loooong url here....",
+    "shrink-it": "shrnk it"
+  },
+  "summary": {
+    "total-link-shorten": "{totalLinks} link shrtn.",
+    "total-visited": "{totalVisit} visited"
+  }
+}
