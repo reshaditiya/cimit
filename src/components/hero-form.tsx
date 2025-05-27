@@ -54,7 +54,7 @@ export default function HeroForm({
                 autoCapitalize="off"
                 spellCheck="false"
               />
-              <FormDescription className="text-foreground/80">
+              <FormDescription className="text-primary/80">
                 u want more options????, yea u can edit that later.
               </FormDescription>
               <FormMessage />

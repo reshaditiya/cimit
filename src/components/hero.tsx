@@ -18,7 +18,7 @@ export default function Hero({
     <section
       className={cn(
         reversedTheme,
-        'bg-background text-foreground relative space-y-4 overflow-hidden rounded-4xl p-10 lg:p-20'
+        'bg-primary-foreground text-primary relative space-y-4 overflow-hidden rounded-4xl p-10 lg:p-20'
       )}
     >
       <div>
