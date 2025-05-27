@@ -48,25 +48,20 @@ export default function HeroForm({
               <Input
                 {...field}
                 placeholder="paste your loooong url here...."
-                className="selection:bg-primary-foreground selection:text-primary max-w-md"
+                className="max-w-md"
                 autoComplete="off"
                 autoCorrect="off"
                 autoCapitalize="off"
                 spellCheck="false"
               />
-              <FormDescription className="text-primary-foreground/80">
+              <FormDescription className="text-foreground/80">
                 u want more options????, yea u can edit that later.
               </FormDescription>
-              <FormMessage className="text-rose-400" />
+              <FormMessage />
             </FormItem>
           )}
         />
-        <Button
-          type="submit"
-          className="bg-primary-foreground text-primary hover:bg-accent hover:text-accent-foreground"
-        >
-          shrnk it
-        </Button>
+        <Button type="submit">shrnk it</Button>
       </form>
     </Form>
   );

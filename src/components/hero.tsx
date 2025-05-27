@@ -1,14 +1,26 @@
+'use client';
+
 import { TLinkShortForm } from '@/lib/types';
 import HeroForm from './hero-form';
 import { Ripple } from './magicui/ripple';
+import { useTheme } from 'next-themes';
+import { cn } from '@/lib/utils';
 
 export default function Hero({
   onSubmit = () => {},
 }: {
   onSubmit?: (params: TLinkShortForm) => void;
 }) {
+  const { theme } = useTheme();
+  const reversedTheme = theme === 'dark' ? 'light' : 'dark';
+
   return (
-    <section className="bg-primary text-primary-foreground relative space-y-4 overflow-hidden rounded-4xl p-10 lg:p-20">
+    <section
+      className={cn(
+        reversedTheme,
+        'bg-background text-foreground relative space-y-4 overflow-hidden rounded-4xl p-10 lg:p-20'
+      )}
+    >
       <div>
         <h1 className="text-5xl font-black lg:text-7xl">cimit.</h1>
         <p>Shrink ‘em, save ‘em, and share ‘em—without the hassle.</p>

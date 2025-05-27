@@ -35,7 +35,7 @@ export const Ripple = memo(function Ripple({
           <div
             key={i}
             className={cn(
-              'animate-ripple border-background absolute top-[50%] left-[50%] rounded-full border-2 shadow-xl',
+              'animate-ripple border-primary absolute top-[50%] left-[50%] rounded-full border-2 shadow-xl',
               effectClassName
             )}
             style={
