@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react';
 import { montserrat } from '../src/lib/fonts';
 import { ThemeProvider } from '../src/components/theme-provider';
+import { StorybookProvider } from '../src/components/storybook-provider';
 import '../src/app/globals.css';
 
 const preview: Preview = {
@@ -21,11 +22,13 @@ const preview: Preview = {
         disableTransitionOnChange
         forcedTheme={context.globals.theme}
       >
-        <div className={montserrat.variable}>
-          <div className="font-sans">
-            <Story />
+        <StorybookProvider context={context}>
+          <div className={montserrat.variable}>
+            <div className="font-sans">
+              <Story />
+            </div>
           </div>
-        </div>
+        </StorybookProvider>
       </ThemeProvider>
     ),
   ],
