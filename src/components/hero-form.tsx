@@ -57,6 +57,7 @@ export default function HeroForm({
                   autoCorrect="off"
                   autoCapitalize="off"
                   spellCheck="false"
+                  aria-label="Long Link"
                 />
               </FormControl>
               <FormDescription className="text-primary/80">
