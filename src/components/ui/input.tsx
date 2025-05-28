@@ -18,4 +18,35 @@ function Input({ className, type, ...props }: React.ComponentProps<'input'>) {
   );
 }
 
-export { Input };
+interface InputWithIconProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  icon: React.ReactNode;
+  label?: string;
+  iconPosition?: 'left' | 'right';
+}
+
+function InputWithIcon({
+  icon,
+  iconPosition = 'left',
+  className,
+  ...props
+}: InputWithIconProps) {
+  return (
+    <div className="relative">
+      <div
+        className={cn(
+          'text-muted-foreground absolute top-1/2 -translate-y-1/2 transform',
+          iconPosition === 'left' ? 'left-3' : 'right-3'
+        )}
+      >
+        {icon}
+      </div>
+      <Input
+        className={cn(iconPosition === 'left' ? 'pl-9' : 'pr-9', className)}
+        {...props}
+      />
+    </div>
+  );
+}
+
+export { Input, InputWithIcon };
