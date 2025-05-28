@@ -49,7 +49,7 @@ export default function HeroForm({
             <FormItem>
               <Input
                 {...field}
-                placeholder="{t('paste-long-form')}"
+                placeholder={t('paste-long-form')}
                 className="max-w-md"
                 autoComplete="off"
                 autoCorrect="off"
