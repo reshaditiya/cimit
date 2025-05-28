@@ -6,10 +6,7 @@ export default function SectionTitle({
   ...props
 }: React.ComponentProps<'span'>) {
   return (
-    <span
-      className={cn('text-xl font-bold lg:text-3xl', className)}
-      {...props}
-    >
+    <span className={cn('text-xl font-bold lg:text-3xl', className)} {...props}>
       {children}
     </span>
   );

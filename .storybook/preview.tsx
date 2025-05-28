@@ -25,10 +25,7 @@ const preview: Preview = {
         forcedTheme={context.globals.theme}
       >
         <StorybookProvider context={context}>
-          <NextIntlClientProvider
-            locale="en"
-            messages={defaultMessages}
-          >
+          <NextIntlClientProvider locale="en" messages={defaultMessages}>
             <div className={montserrat.variable}>
               <div className="font-sans">
                 <Story />

@@ -18,7 +18,11 @@ export default async function RootLayout({
   const locale = await getLocale();
 
   return (
-    <html lang={locale} className={montserrat.variable} suppressHydrationWarning>
+    <html
+      lang={locale}
+      className={montserrat.variable}
+      suppressHydrationWarning
+    >
       <body className="font-sans">
         <ThemeProvider
           attribute="class"
