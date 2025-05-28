@@ -1,4 +1,4 @@
 import { z } from 'zod';
-import { linkShortForm } from './schemas';
+import { linkShortSchema } from './schemas';
 
-export type TLinkShortForm = z.infer<typeof linkShortForm>;
+export type TLinkShortSchema = z.infer<typeof linkShortSchema>;

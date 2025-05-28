@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { linkShortForm } from '@/lib/schemas';
+import { linkShortSchema } from '@/lib/schemas';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 import {
@@ -13,17 +13,17 @@ import {
   FormItem,
   FormMessage,
 } from './ui/form';
-import { TLinkShortForm } from '@/lib/types';
+import { TLinkShortSchema } from '@/lib/types';
 import { useTranslations } from 'next-intl';
 
 export default function HeroForm({
   onSubmit = () => {},
 }: {
-  onSubmit?: (params: TLinkShortForm) => void;
+  onSubmit?: (params: TLinkShortSchema) => void;
 }) {
   const inputLinkRef = useRef<HTMLInputElement>(null);
   const form = useForm({
-    resolver: zodResolver(linkShortForm),
+    resolver: zodResolver(linkShortSchema),
     defaultValues: {
       longLink: '',
     },
