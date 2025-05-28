@@ -8,3 +8,11 @@ export const linkShortSchema = z.object({
       message: 'that link seems short enough though',
     }),
 });
+
+export const filterSorterSchema = z.object({
+  search: z.string().optional(),
+  orderBy: z.enum(['created date', 'most visited', 'expired date']),
+  order: z.enum(['asc', 'desc']),
+  visibility: z.enum(['all', 'public', 'protected']),
+  expiry: z.enum(['all', 'active', 'expired']),
+});

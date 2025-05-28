@@ -17,5 +17,20 @@
   "summary": {
     "total-link-shorten": "{totalLinks} link shrtn.",
     "total-visited": "{totalVisit} visited"
+  },
+  "filter-sorter": {
+    "title": "filters & sort.",
+    "search-placeholder": "search your loong or shrt link",
+    "label-search": "Search",
+    "order-by": "order by",
+    "created-date": "created date",
+    "most-visited": "most visited",
+    "expired-date": "expired date",
+    "order": "order",
+    "all": "all",
+    "public": "public",
+    "protected": "protected",
+    "active": "active",
+    "expired": "expired"
   }
 }
