@@ -11,7 +11,8 @@
   "hero-form": {
     "more-options": "u want more options????, yea u can edit that later.",
     "paste-long-form": "paste your loooong url here....",
-    "shrink-it": "shrnk it"
+    "shrink-it": "shrnk it",
+    "label-long-link": "Long Link"
   },
   "summary": {
     "total-link-shorten": "{totalLinks} link shrtn.",
