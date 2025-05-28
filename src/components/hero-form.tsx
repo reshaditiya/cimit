@@ -8,6 +8,7 @@ import { Input } from './ui/input';
 import { Button } from './ui/button';
 import {
   Form,
+  FormControl,
   FormDescription,
   FormField,
   FormItem,
@@ -47,15 +48,17 @@ export default function HeroForm({
           name="longLink"
           render={({ field }) => (
             <FormItem>
-              <Input
-                {...field}
-                placeholder={t('paste-long-form')}
-                className="max-w-md"
-                autoComplete="off"
-                autoCorrect="off"
-                autoCapitalize="off"
-                spellCheck="false"
-              />
+              <FormControl>
+                <Input
+                  {...field}
+                  placeholder={t('paste-long-form')}
+                  className="max-w-md"
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="off"
+                  spellCheck="false"
+                />
+              </FormControl>
               <FormDescription className="text-primary/80">
                 {t('more-options')}
               </FormDescription>
