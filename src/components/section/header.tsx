@@ -1,5 +1,5 @@
-import AccountBtn from './account-btn';
-import { Button } from './ui/button';
+import AccountBtn from '../shared/account-btn';
+import { Button } from '../ui/button';
 
 export default function Header({
   domain = process.env.NEXT_PUBLIC_DOMAIN_NAME,

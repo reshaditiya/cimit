@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import CardContainer from './card-container';
+import CardContainer from './layout/card-container';
 import Image from 'next/image';
 import { Globe } from 'lucide-react';
 import { useTranslations } from 'next-intl';

@@ -1,6 +1,6 @@
 import type { VariantProps } from 'class-variance-authority';
 import * as React from 'react';
-import { Button, buttonVariants } from './ui/button';
+import { Button, buttonVariants } from '../ui/button';
 import { useTranslations } from 'next-intl';
 
 export default function AccountBtn({

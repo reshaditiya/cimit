@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
-import CardContainer from './card-container';
-import SectionTitle from './section-title';
+import CardContainer from './layout/card-container';
+import SectionTitle from './common/section-title';
 
 export default function Summary({
   totalLinks,

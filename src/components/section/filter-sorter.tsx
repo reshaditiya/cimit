@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
-import CardContainer from './card-container';
-import SectionTitle from './section-title';
+import CardContainer from './layout/card-container';
+import SectionTitle from './common/section-title';
 import { InputWithIcons } from './ui/input';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';

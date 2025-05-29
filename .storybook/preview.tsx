@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/react';
 import { montserrat } from '../src/lib/fonts';
-import { ThemeProvider } from '../src/components/theme-provider';
-import { StorybookProvider } from '../src/components/storybook-provider';
+import { ThemeProvider } from '../src/components/provider/theme-provider';
+import { StorybookProvider } from '../src/components/provider/storybook-provider';
 import { NextIntlClientProvider } from 'next-intl';
 import defaultMessages from '../public/locales/en.json';
 import '../src/app/globals.css';

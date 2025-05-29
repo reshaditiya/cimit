@@ -1,4 +1,4 @@
-import Summary from '@/components/summary';
+import Summary from '@/components/section/summary';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
