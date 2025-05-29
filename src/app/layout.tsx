@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { montserrat } from '@/lib/fonts';
-import { ThemeProvider } from '@/components/provider/theme-provider';
+import { ThemeProvider } from '@/components/providers/theme-provider';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale } from 'next-intl/server';
 

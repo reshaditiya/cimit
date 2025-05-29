@@ -3,7 +3,7 @@ import { Ripple } from '../magicui/ripple';
 import { useTheme } from 'next-themes';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
-import HeroForm from '../form/hero-form';
+import HeroForm from '../forms/hero-form';
 
 export default function Hero({
   onSubmit = () => {},

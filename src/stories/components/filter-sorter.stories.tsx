@@ -1,4 +1,4 @@
-import FilterSorter from '@/components/section/filter-sorter';
+import FilterSorter from '@/components/sections/filter-sorter';
 import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 

@@ -1,5 +1,5 @@
-import HeroForm from '@/components/form/hero-form';
-import Hero from '@/components/section/hero';
+import HeroForm from '@/components/forms/hero-form';
+import Hero from '@/components/sections/hero';
 import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
