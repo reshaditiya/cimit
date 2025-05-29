@@ -3,6 +3,7 @@ import CardContainer from './card-container';
 import Image from 'next/image';
 import { Globe } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { Button } from './ui/button';
 
 export default function Footer({
   personalDomain = `https://me.${process.env.NEXT_PUBLIC_DOMAIN_NAME}`,
@@ -23,8 +24,12 @@ export default function Footer({
         })}
       </span>
       <div className="flex gap-2">
-        <Image src="./github.svg" alt="github" width={24} height={24} />
-        <Globe className="size-6" />
+        <Button variant="ghost" size="icon">
+          <Image src="./github.svg" alt="github" width={20} height={20} />
+        </Button>
+        <Button variant="ghost" size="icon">
+          <Globe className="size-5" />
+        </Button>
       </div>
     </CardContainer>
   );
