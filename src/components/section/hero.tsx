@@ -1,16 +1,14 @@
-'use client';
-
-import { TLinkShortForm } from '@/lib/types';
-import HeroForm from './hero-form';
-import { Ripple } from './magicui/ripple';
+import { TLinkShortSchema } from '@/lib/types';
+import { Ripple } from '../magicui/ripple';
 import { useTheme } from 'next-themes';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
+import HeroForm from '../form/hero-form';
 
 export default function Hero({
   onSubmit = () => {},
 }: {
-  onSubmit?: (params: TLinkShortForm) => void;
+  onSubmit?: (params: TLinkShortSchema) => void;
 }) {
   const { theme } = useTheme();
   const t = useTranslations('hero');

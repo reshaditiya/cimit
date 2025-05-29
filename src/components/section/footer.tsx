@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import CardContainer from './layout/card-container';
+import CardContainer from '../layout/card-container';
 import Image from 'next/image';
 import { Globe } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { Button } from './ui/button';
+import { Button } from '../ui/button';
 
 export default function Footer({
   personalDomain = `https://me.${process.env.NEXT_PUBLIC_DOMAIN_NAME}`,

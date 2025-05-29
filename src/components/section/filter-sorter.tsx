@@ -1,11 +1,11 @@
 import { useTranslations } from 'next-intl';
-import CardContainer from './layout/card-container';
-import SectionTitle from './common/section-title';
-import { InputWithIcons } from './ui/input';
+import CardContainer from '../layout/card-container';
+import SectionTitle from '../common/section-title';
+import { InputWithIcons } from '../ui/input';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { filterSorterSchema } from '@/lib/schemas';
-import { Form, FormControl, FormField, FormItem } from './ui/form';
+import { Form, FormControl, FormField, FormItem } from '../ui/form';
 import { ChevronDown, ChevronUp, Search, X } from 'lucide-react';
 import {
   Select,
@@ -13,11 +13,11 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from './ui/select';
-import { Button } from './ui/button';
+} from '../ui/select';
+import { Button } from '../ui/button';
 import { TFilterSorterSchema } from '@/lib/types';
 import { useDebouncedCallback, useDidUpdate } from '@mantine/hooks';
-import { Tabs, TabsList, TabsTrigger } from './ui/tabs';
+import { Tabs, TabsList, TabsTrigger } from '../ui/tabs';
 
 export default function FilterSorter({
   onChange = () => {},
