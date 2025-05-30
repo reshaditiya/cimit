@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Resha-Aditiya-s-workspace-cnn648.us-east-1.xata.sh/db/cimit",
+  "codegen": {
+    "output": "src/lib/xata-client.ts"
+  }
+}
