@@ -4,7 +4,7 @@ import { ThemeProvider } from '../src/components/providers/theme-provider';
 import { StorybookProvider } from '../src/components/providers/storybook-provider';
 import { NextIntlClientProvider } from 'next-intl';
 import defaultMessages from '../public/locales/en.json';
-import '../src/app/globals.css';
+import '../src/styles/globals.css';
 
 const preview: Preview = {
   parameters: {
