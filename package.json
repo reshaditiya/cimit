@@ -10,8 +10,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "tidy": "prettier --write .",
-    "dz-studio": "npx drizzle-kit studio",
-    "dz-push": "npx drizzle-kit push"
+    "db:studio": "drizzle-kit studio",
+    "db:push": "drizzle-kit push"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
