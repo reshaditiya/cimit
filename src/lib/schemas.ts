@@ -1,12 +1,9 @@
-import { z } from 'zod';
+import { z } from 'zod/v4';
 
 export const linkShortSchema = z.object({
   longLink: z
-    .string()
-    .url({ message: 'put a link, this is a link shortner not a text editor' })
-    .min(25, {
-      message: 'that link seems short enough though',
-    }),
+    .url('put a link, this is a link shortner not a text editor')
+    .min(25, 'that link seems short enough though'),
 });
 
 export const filterSorterSchema = z.object({
