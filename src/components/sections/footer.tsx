@@ -4,9 +4,10 @@ import Image from 'next/image';
 import { Globe } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Button } from '../ui/button';
+import { env } from '@/lib/env';
 
 export default function Footer({
-  personalDomain = `https://me.${process.env.NEXT_PUBLIC_DOMAIN_NAME}`,
+  personalDomain = `https://me.${env.NEXT_PUBLIC_DOMAIN_NAME}`,
 }: {
   personalDomain?: string;
 }) {
