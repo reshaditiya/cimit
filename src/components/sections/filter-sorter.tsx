@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import CardContainer from '../layouts/card-container';
+import CardContainer from '../common/card-container';
 import SectionTitle from '../common/section-title';
 import { InputWithIcons } from '../ui/input';
 import { useForm } from 'react-hook-form';
