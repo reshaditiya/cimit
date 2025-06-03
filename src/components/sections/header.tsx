@@ -1,5 +1,5 @@
 import { env } from '@/lib/env';
-import AccountBtn from '../shared/account-btn';
+import AccountBtn from '../common/account-btn';
 import { Button } from '../ui/button';
 
 export default function Header({
