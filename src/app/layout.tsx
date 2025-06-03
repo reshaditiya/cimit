@@ -4,6 +4,7 @@ import { montserrat } from '@/lib/fonts';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale } from 'next-intl/server';
+import { TRPCReactProvider } from '@/trpc/client';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -30,7 +31,9 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider>
+            <TRPCReactProvider>{children}</TRPCReactProvider>
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

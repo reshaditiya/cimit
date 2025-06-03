@@ -4,6 +4,7 @@ import { ThemeProvider } from '../src/components/providers/theme-provider';
 import { StorybookProvider } from '../src/components/providers/storybook-provider';
 import { NextIntlClientProvider } from 'next-intl';
 import defaultMessages from '../public/locales/en.json';
+import { TRPCReactProvider } from '../src/trpc/client';
 import '../src/styles/globals.css';
 
 const preview: Preview = {
@@ -26,11 +27,13 @@ const preview: Preview = {
       >
         <StorybookProvider context={context}>
           <NextIntlClientProvider locale="en" messages={defaultMessages}>
-            <div className={montserrat.variable}>
-              <div className="font-sans">
-                <Story />
+            <TRPCReactProvider>
+              <div className={montserrat.variable}>
+                <div className="font-sans">
+                  <Story />
+                </div>
               </div>
-            </div>
+            </TRPCReactProvider>
           </NextIntlClientProvider>
         </StorybookProvider>
       </ThemeProvider>
