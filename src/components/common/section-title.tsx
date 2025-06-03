@@ -7,13 +7,13 @@ type CardContainerProps<T extends ElementType> = {
   children?: React.ReactNode;
 } & ComponentPropsWithoutRef<T>;
 
-export default function SectionTitle<T extends ElementType = 'span'>({
+export default function SectionTitle<T extends ElementType = 'h2'>({
   as,
   className,
   children,
   ...props
 }: CardContainerProps<T>) {
-  const Component = as || 'span';
+  const Component = as || 'h2';
 
   return (
     <Component
