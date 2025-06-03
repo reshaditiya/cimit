@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { linkShortSchema } from '@/lib/schemas';
+import { linkShortSchema } from '@/lib/zod-schemas';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import {

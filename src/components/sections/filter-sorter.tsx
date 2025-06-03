@@ -4,7 +4,7 @@ import SectionTitle from '../common/section-title';
 import { InputWithIcons } from '../ui/input';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { filterSorterSchema } from '@/lib/schemas';
+import { filterSorterSchema } from '@/lib/zod-schemas';
 import { Form, FormControl, FormField, FormItem } from '../ui/form';
 import { ChevronDown, ChevronUp, Search, X } from 'lucide-react';
 import {
