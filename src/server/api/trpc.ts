@@ -12,7 +12,7 @@ import superjson from 'superjson';
 import { ZodError } from 'zod';
 
 import { auth } from '@/server/auth';
-import db from '@/lib/drizzle-client';
+import db from '@/server/db/drizzle-client';
 
 /**
  * 1. CONTEXT
