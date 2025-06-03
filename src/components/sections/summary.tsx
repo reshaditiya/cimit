@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations, useFormatter } from 'next-intl';
 import CardContainer from '../layouts/card-container';
 import SectionTitle from '../common/section-title';
 
@@ -10,8 +10,9 @@ export default function Summary({
   totalVisit: number;
 }) {
   const t = useTranslations('summary');
-  const formattedTotalLinks = new Intl.NumberFormat('en-US').format(totalLinks);
-  const formattedTotalVisit = new Intl.NumberFormat('en-US').format(totalVisit);
+  const format = useFormatter();
+  const formattedTotalLinks = format.number(totalLinks);
+  const formattedTotalVisit = format.number(totalVisit);
 
   return (
     <CardContainer>
