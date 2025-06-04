@@ -1,10 +1,6 @@
 import { getRequestConfig } from 'next-intl/server';
+import config from './config';
 
 export default getRequestConfig(async () => {
-  const locale = 'en';
-
-  return {
-    locale,
-    messages: (await import(`../../public/locales/${locale}.json`)).default,
-  };
+  return config;
 });

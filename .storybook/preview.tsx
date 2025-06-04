@@ -3,8 +3,8 @@ import { montserrat } from '../src/lib/fonts';
 import { ThemeProvider } from '../src/components/providers/theme-provider';
 import { StorybookProvider } from '../src/components/providers/storybook-provider';
 import { NextIntlClientProvider } from 'next-intl';
-import defaultMessages from '../public/locales/en.json';
 import { TRPCReactProvider } from '../src/trpc/client';
+import intlConfig from '../src/i18n/config';
 import '../src/styles/globals.css';
 
 const preview: Preview = {
@@ -26,7 +26,7 @@ const preview: Preview = {
         forcedTheme={context.globals.theme}
       >
         <StorybookProvider context={context}>
-          <NextIntlClientProvider locale="en" messages={defaultMessages}>
+          <NextIntlClientProvider {...intlConfig}>
             <TRPCReactProvider>
               <div className={montserrat.variable}>
                 <div className="font-sans">

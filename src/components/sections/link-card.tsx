@@ -16,6 +16,7 @@ export function LinkCard({
   const format = useFormatter();
   const t = useTranslations('link-list');
   const visibility = link.password ? 'protected' : 'public';
+
   return (
     <>
       <ul className="break-words whitespace-normal [&>*]:line-clamp-2">
@@ -41,7 +42,6 @@ export function LinkCard({
             day: '2-digit',
             month: 'short',
             year: 'numeric',
-            timeZone: 'UTC',
           })}
         </li>
         <li>
@@ -51,7 +51,6 @@ export function LinkCard({
               day: '2-digit',
               month: 'short',
               year: 'numeric',
-              timeZone: 'UTC',
             })}
         </li>
         <li>
