@@ -39,7 +39,7 @@ export function LinkCard({
           created at:{' '}
           {format.dateTime(link.createdAt, {
             day: '2-digit',
-            month: '2-digit',
+            month: 'short',
             year: 'numeric',
             timeZone: 'UTC',
           })}
@@ -49,7 +49,7 @@ export function LinkCard({
           {link.expiredAt &&
             format.dateTime(link.createdAt, {
               day: '2-digit',
-              month: '2-digit',
+              month: 'short',
               year: 'numeric',
               timeZone: 'UTC',
             })}
