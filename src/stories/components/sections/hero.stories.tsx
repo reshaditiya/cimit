@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
 const meta = {
-  title: 'Components/Hero',
+  title: 'Components/Sections/Hero',
   component: Hero,
   tags: ['autodocs'],
   subcomponents: { HeroForm },

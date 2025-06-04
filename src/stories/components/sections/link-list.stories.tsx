@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
 const meta = {
-  title: 'Components/Link List',
+  title: 'Components/Sections/Link List',
   component: LinkList,
   tags: ['autodocs'],
   args: { onShortLinkClick: fn(), onOptionsClick: fn() },

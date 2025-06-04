@@ -2,7 +2,7 @@ import Summary from '@/components/sections/summary';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Components/Summary',
+  title: 'Components/Sections/Summary',
   component: Summary,
   tags: ['autodocs'],
   args: { totalLinks: 2321, totalVisit: 23412 },

@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
 const meta = {
-  title: 'Components/Filter Sorter',
+  title: 'Components/Sections/Filter Sorter',
   component: FilterSorter,
   tags: ['autodocs'],
   args: { onChange: fn() },
