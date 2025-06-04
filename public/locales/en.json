@@ -32,5 +32,13 @@
     "protected": "protected",
     "active": "active",
     "expired": "expired"
+  },
+  "link-list": {
+    "title-empty": "What u looking for????",
+    "description-empty": "don't look for something that's not created yet, short a link and with a magic all of your creation will appear here.",
+    "title-anonymous": "this suppossed to be link manager.",
+    "description-anonymous": "since ur a guest of course u don't have access to the link management, try ur luck by signing in.",
+    "copy-link-btn": "copy shrt link",
+    "options-btn": "options"
   }
 }
