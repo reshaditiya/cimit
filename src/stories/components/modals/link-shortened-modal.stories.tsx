@@ -7,7 +7,11 @@ const meta = {
   title: 'Components/Modals/Link Shortened Modal',
   component: LinkShortenedModal,
   tags: ['autodocs'],
-  args: { link: env.NEXT_PUBLIC_DOMAIN_NAME, onCopyLink: fn() },
+  args: {
+    link: env.NEXT_PUBLIC_DOMAIN_NAME,
+    onCopyLink: fn(),
+    children: 'Open',
+  },
 } satisfies Meta<typeof LinkShortenedModal>;
 
 export default meta;
