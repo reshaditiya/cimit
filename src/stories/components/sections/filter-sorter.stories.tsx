@@ -10,6 +10,6 @@ const meta = {
 } satisfies Meta<typeof FilterSorter>;
 
 export default meta;
-type Story = StoryObj<typeof FilterSorter>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};

@@ -11,8 +11,8 @@ const meta = {
 } satisfies Meta<typeof LinkList>;
 
 export default meta;
-type Story = StoryObj<typeof LinkList>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = { args: { data: linkListData, isLogin: true } };
 export const Empty: Story = { args: { data: [], isLogin: true } };
-export const NotLoggedIn: Story = { args: { isLogin: false } };
+export const NotLoggedIn: Story = { args: { data: [], isLogin: false } };
