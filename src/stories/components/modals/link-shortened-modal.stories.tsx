@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
 const meta = {
-  title: 'Components/Modal/Link Shortened Modal',
+  title: 'Components/Modals/Link Shortened Modal',
   component: LinkShortenedModal,
   tags: ['autodocs'],
   args: { link: env.NEXT_PUBLIC_DOMAIN_NAME, onCopyLink: fn() },
