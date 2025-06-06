@@ -55,7 +55,6 @@ function InputWithIcons({
 
 function PasswordInput(props: React.ComponentProps<'input'>) {
   const [isVisible, handlers] = useDisclosure();
-  console.log(isVisible);
 
   return (
     <InputWithIcons
