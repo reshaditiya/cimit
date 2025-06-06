@@ -65,9 +65,14 @@ function PasswordInput(props: React.ComponentProps<'input'>) {
           <EyeClosedIcon
             className="size-4 cursor-pointer"
             onClick={handlers.close}
+            role="button"
           />
         ) : (
-          <EyeIcon className="size-4 cursor-pointer" onClick={handlers.open} />
+          <EyeIcon
+            className="size-4 cursor-pointer"
+            onClick={handlers.open}
+            role="button"
+          />
         )
       }
       {...props}

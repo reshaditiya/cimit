@@ -72,6 +72,7 @@ export default function FilterSorter({
                         <X
                           className="size-4 cursor-pointer"
                           onClick={() => field.onChange('')}
+                          role="button"
                         />
                       )
                     }
