@@ -4,7 +4,7 @@ export const linkListData: TLinkListData[] = [
   {
     shortLink: 'sn8XlKmasdasdasdasdasdasdawasdawdadsd',
     longLink: 'https://example.com/link1/testing/123/abcd',
-    totalVisited: 12332,
+    totalVisited: 123322312,
     expiredAt: new Date('2023-05-01'),
     createdAt: new Date('2023-04-01'),
     password: 'password',
