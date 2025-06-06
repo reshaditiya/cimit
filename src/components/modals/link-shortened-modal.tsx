@@ -5,6 +5,7 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from '../ui/dialog';
@@ -26,11 +27,15 @@ export default function LinkShortenedModal({
   return (
     <Dialog {...props}>
       <DialogTrigger>{children}</DialogTrigger>
-      <DialogContent className="flex w-90 flex-col items-center gap-0 text-center">
-        <DialogTitle>
-          <SectionTitle as="span">{t('title')}</SectionTitle>
-        </DialogTitle>
-        <DialogDescription>{t('description')}</DialogDescription>
+      <DialogContent className="flex w-90 flex-col items-center">
+        <DialogHeader className="items-center gap-0">
+          <DialogTitle className="text-center">
+            <SectionTitle as="span">{t('title')}</SectionTitle>
+          </DialogTitle>
+          <DialogDescription className="text-center">
+            {t('description')}
+          </DialogDescription>
+        </DialogHeader>
         <QRCodeSVG value={link} height={240} width={240} className="mt-4" />
         <CopyLinkBtn onCopyLink={onCopyLink} link={link} />
       </DialogContent>
