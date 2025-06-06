@@ -1,6 +1,8 @@
 import * as React from 'react';
 
 import { cn } from '@/lib/utils';
+import { EyeClosedIcon, EyeIcon } from 'lucide-react';
+import { useDisclosure } from '@mantine/hooks';
 
 function Input({ className, type, ...props }: React.ComponentProps<'input'>) {
   return (
@@ -51,4 +53,26 @@ function InputWithIcons({
   );
 }
 
-export { Input, InputWithIcons };
+function PasswordInput(props: React.ComponentProps<'input'>) {
+  const [isVisible, handlers] = useDisclosure();
+  console.log(isVisible);
+
+  return (
+    <InputWithIcons
+      type={isVisible ? 'text' : 'password'}
+      rightIcon={
+        isVisible ? (
+          <EyeClosedIcon
+            className="size-4 cursor-pointer"
+            onClick={handlers.close}
+          />
+        ) : (
+          <EyeIcon className="size-4 cursor-pointer" onClick={handlers.open} />
+        )
+      }
+      {...props}
+    />
+  );
+}
+
+export { Input, InputWithIcons, PasswordInput };
