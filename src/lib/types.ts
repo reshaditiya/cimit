@@ -4,7 +4,7 @@ import {
   filterSorterSchema,
   linkShortSchema,
 } from './zod-schemas';
-import { links } from '@/server/db/schemas';
+import { links } from '@/db/schemas';
 
 export type TLinkShortSchema = z.infer<typeof linkShortSchema>;
 export type TFilterSorterSchema = z.infer<typeof filterSorterSchema>;
