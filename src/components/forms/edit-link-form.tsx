@@ -16,10 +16,7 @@ import { TEditLinkSchema, TLinkListData } from '@/lib/types';
 import { Button } from '../ui/button';
 import { isBefore } from 'date-fns';
 import ConfirmButton from '../ui/confirm-button';
-import {
-  DetailedHTMLProps,
-  FormHTMLAttributes,
-} from 'react';
+import { DetailedHTMLProps, FormHTMLAttributes } from 'react';
 import { cn } from '@/lib/utils';
 
 type TEditLinkFormProps = Omit<
