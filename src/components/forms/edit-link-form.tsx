@@ -76,6 +76,7 @@ export default function EditLinkForm({
                   onChange={field.onChange}
                   className="w-full justify-start"
                   disabledDate={(date) => isBefore(date, new Date())}
+                  clearable
                 />
               </FormControl>
               <FormDescription className="text-sm">

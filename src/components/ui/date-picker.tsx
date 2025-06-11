@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { format } from 'date-fns';
-import { Calendar as CalendarIcon } from 'lucide-react';
+import { Calendar as CalendarIcon, X } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { Button, buttonVariants } from '@/components/ui/button';
@@ -30,25 +30,51 @@ export function DatePicker({
   value,
   onChange,
   disabledDate,
+  className,
+  clearable = false,
   ...props
-}: DatePickerProps) {
+}: DatePickerProps & { clearable?: boolean }) {
   const [opened, handlers] = useDisclosure();
 
   return (
     <Popover open={opened}>
       <PopoverTrigger asChild>
-        <Button
-          variant="outline"
+        <div
           className={cn(
-            'w-[280px] justify-start text-left font-normal',
-            !value && 'text-muted-foreground'
+            'flex w-full items-center transition-[gap]',
+            value && clearable && 'gap-4',
+            className
           )}
-          onClick={() => handlers.toggle()}
-          {...props}
         >
-          <CalendarIcon className="mr-2 h-4 w-4" />
-          {value ? format(value, 'PPP') : <span>Pick a date</span>}
-        </Button>
+          <Button
+            variant="outline"
+            className={cn(
+              'flex-1 justify-start text-left font-normal',
+              !value && 'text-muted-foreground'
+            )}
+            onClick={() => handlers.toggle()}
+            {...props}
+          >
+            <CalendarIcon className="mr-2 h-4 w-4" />
+            {value ? format(value, 'PPP') : <span>Pick a date</span>}
+          </Button>
+          {clearable && (
+            <Button
+              type="button"
+              size="icon"
+              variant="ghost"
+              onClick={() => onChange(null)}
+              className={cn(
+                value
+                  ? 'max-h-[36px] max-w-[36px] opacity-100'
+                  : 'max-h-0 max-w-0 opacity-0',
+                'transition-all'
+              )}
+            >
+              <X />
+            </Button>
+          )}
+        </div>
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0">
         <Calendar
