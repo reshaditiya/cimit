@@ -8,11 +8,11 @@ import {
   FormLabel,
   FormMessage,
 } from '../ui/form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { editLinkSchema } from '@/lib/zod-schemas';
+import { standardSchemaResolver } from '@hookform/resolvers/standard-schema';
+import { updateLinkSchema } from '@/lib/zod-schemas';
 import { Input, PasswordInput } from '../ui/input';
 import { DatePicker } from '../ui/date-picker';
-import { TEditLinkSchema, TLinkListData } from '@/lib/types';
+import { TSelectLink, TUpdateLinkSchema } from '@/lib/types';
 import { Button } from '../ui/button';
 import { isBefore } from 'date-fns';
 import ConfirmButton from '../ui/confirm-button';
@@ -23,8 +23,8 @@ type TEditLinkFormProps = Omit<
   DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement>,
   'onSubmit'
 > & {
-  linkData: TLinkListData;
-  onSubmit: SubmitHandler<TEditLinkSchema>;
+  linkData: TSelectLink;
+  onSubmit: SubmitHandler<TUpdateLinkSchema>;
   onDelete: VoidFunction;
 };
 
@@ -35,11 +35,11 @@ export default function EditLinkForm({
   linkData,
   ...props
 }: TEditLinkFormProps) {
-  const form = useForm({
-    resolver: zodResolver(editLinkSchema),
+  const form = useForm<TUpdateLinkSchema>({
+    resolver: standardSchemaResolver(updateLinkSchema),
     defaultValues: {
-      expiredDate: linkData.expiredAt || undefined,
-      password: linkData.password || undefined,
+      expiredAt: linkData.expiredAt,
+      password: linkData.password,
       shortLink: linkData.shortLink,
     },
   });
@@ -66,13 +66,13 @@ export default function EditLinkForm({
         />
         <FormField
           control={form.control}
-          name="expiredDate"
+          name="expiredAt"
           render={({ field }) => (
             <FormItem>
               <FormLabel>expired date</FormLabel>
               <FormControl>
                 <DatePicker
-                  value={field.value}
+                  value={field.value ?? undefined}
                   setValue={field.onChange}
                   className="w-full justify-start"
                   disabledDate={(date) => isBefore(date, new Date())}
@@ -92,7 +92,10 @@ export default function EditLinkForm({
             <FormItem>
               <FormLabel>password</FormLabel>
               <FormControl>
-                <PasswordInput {...field} />
+                <PasswordInput
+                  value={field.value ?? undefined}
+                  onChange={field.onChange}
+                />
               </FormControl>
               <FormDescription className="text-sm">
                 if password filled it means link protected

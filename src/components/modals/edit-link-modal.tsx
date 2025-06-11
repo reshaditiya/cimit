@@ -6,7 +6,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '../ui/dialog';
-import { TEditLinkSchema, TLinkListData } from '@/lib/types';
+import { TSelectLink, TUpdateLinkSchema } from '@/lib/types';
 import { FC } from 'react';
 import { DialogProps } from '@radix-ui/react-dialog';
 import { useFormatter } from 'next-intl';
@@ -19,8 +19,8 @@ export default function EditLinkModal({
   linkData,
   ...props
 }: React.ComponentProps<FC<DialogProps>> & {
-  linkData: TLinkListData;
-  onSubmit: SubmitHandler<TEditLinkSchema>;
+  linkData: TSelectLink;
+  onSubmit: SubmitHandler<TUpdateLinkSchema>;
   onDelete: VoidFunction;
 }) {
   const format = useFormatter();

@@ -3,7 +3,6 @@ import CardContainer from '../common/card-container';
 import SectionTitle from '../common/section-title';
 import { InputWithIcons } from '../ui/input';
 import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { filterSorterSchema } from '@/lib/zod-schemas';
 import { Form, FormControl, FormField, FormItem } from '../ui/form';
 import { ChevronDown, ChevronUp, Search, X } from 'lucide-react';
@@ -18,15 +17,17 @@ import { Button } from '../ui/button';
 import { TFilterSorterSchema } from '@/lib/types';
 import { useDebouncedCallback, useDidUpdate } from '@mantine/hooks';
 import { Tabs, TabsList, TabsTrigger } from '../ui/tabs';
+import { standardSchemaResolver } from '@hookform/resolvers/standard-schema';
+import { z } from 'zod/v4';
 
 export default function FilterSorter({
   onChange = () => {},
 }: {
-  onChange: (params: TFilterSorterSchema) => void;
+  onChange: (params: z.infer<typeof filterSorterSchema>) => void;
 }) {
   const t = useTranslations('filter-sorter');
-  const form = useForm({
-    resolver: zodResolver(filterSorterSchema),
+  const form = useForm<z.infer<typeof filterSorterSchema>>({
+    resolver: standardSchemaResolver(filterSorterSchema),
     defaultValues: {
       search: '',
       orderBy: 'created date',

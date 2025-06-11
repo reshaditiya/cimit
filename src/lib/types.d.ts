@@ -1,15 +1,12 @@
-import { z } from 'zod';
+import { z } from 'zod/v4';
 import {
-  editLinkSchema,
   filterSorterSchema,
   linkShortSchema,
+  updateLinkSchema,
 } from './zod-schemas';
 import { links } from '@/db/schemas';
 
-export type TLinkShortSchema = z.infer<typeof linkShortSchema>;
 export type TFilterSorterSchema = z.infer<typeof filterSorterSchema>;
-export type TLinkListData = Omit<
-  typeof links.$inferSelect,
-  'updatedAt' | 'createdBy'
->;
-export type TEditLinkSchema = z.infer<typeof editLinkSchema>;
+export type TSelectLink = typeof links.$inferSelect;
+export type TInsertLinkSchema = z.infer<typeof linkShortSchema>;
+export type TUpdateLinkSchema = z.infer<typeof updateLinkSchema>;
