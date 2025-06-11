@@ -19,14 +19,16 @@ import { Matcher } from 'react-day-picker';
 type DatePickerProps = Omit<React.ComponentProps<'button'>, 'value'> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
-    value: Date | undefined;
+    value: Date | undefined | null;
     disabledDate?: Matcher | Matcher[] | undefined;
-    setValue: (value: Date | undefined) => void;
+    onChange: (value: Date | undefined | null) => void;
   };
 
+// NOTE: value and onChange has null to solve date form control
+// https://github.com/shadcn-ui/ui/issues/5503
 export function DatePicker({
   value,
-  setValue,
+  onChange,
   disabledDate,
   ...props
 }: DatePickerProps) {
@@ -51,9 +53,9 @@ export function DatePicker({
       <PopoverContent className="w-auto p-0">
         <Calendar
           mode="single"
-          selected={value}
+          selected={value ?? undefined}
           onSelect={(val) => {
-            setValue(val);
+            onChange(val ?? null);
             handlers.close();
           }}
           disabled={disabledDate}

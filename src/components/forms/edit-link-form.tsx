@@ -72,8 +72,8 @@ export default function EditLinkForm({
               <FormLabel>expired date</FormLabel>
               <FormControl>
                 <DatePicker
-                  value={field.value ?? undefined}
-                  setValue={field.onChange}
+                  value={field.value}
+                  onChange={field.onChange}
                   className="w-full justify-start"
                   disabledDate={(date) => isBefore(date, new Date())}
                 />
