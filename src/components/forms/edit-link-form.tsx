@@ -8,7 +8,7 @@ import {
   FormLabel,
   FormMessage,
 } from '../ui/form';
-import { standardSchemaResolver } from '@hookform/resolvers/standard-schema';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { updateLinkSchema } from '@/lib/zod-schemas';
 import { Input, PasswordInput } from '../ui/input';
 import { DatePicker } from '../ui/date-picker';
@@ -35,8 +35,8 @@ export default function EditLinkForm({
   linkData,
   ...props
 }: TEditLinkFormProps) {
-  const form = useForm<TUpdateLinkSchema>({
-    resolver: standardSchemaResolver(updateLinkSchema),
+  const form = useForm({
+    resolver: zodResolver(updateLinkSchema),
     defaultValues: {
       expiredAt: linkData.expiredAt,
       password: linkData.password,

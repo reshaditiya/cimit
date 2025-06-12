@@ -1,4 +1,4 @@
-import { z } from 'zod/v4';
+import { z } from 'zod';
 import { isAfter } from 'date-fns';
 import { createInsertSchema, createUpdateSchema } from 'drizzle-zod';
 import { links } from '@/db/schemas';

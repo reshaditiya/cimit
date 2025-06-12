@@ -17,8 +17,8 @@ import { Button } from '../ui/button';
 import { TFilterSorterSchema } from '@/lib/types';
 import { useDebouncedCallback, useDidUpdate } from '@mantine/hooks';
 import { Tabs, TabsList, TabsTrigger } from '../ui/tabs';
-import { standardSchemaResolver } from '@hookform/resolvers/standard-schema';
-import { z } from 'zod/v4';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
 
 export default function FilterSorter({
   onChange = () => {},
@@ -26,8 +26,8 @@ export default function FilterSorter({
   onChange: (params: z.infer<typeof filterSorterSchema>) => void;
 }) {
   const t = useTranslations('filter-sorter');
-  const form = useForm<z.infer<typeof filterSorterSchema>>({
-    resolver: standardSchemaResolver(filterSorterSchema),
+  const form = useForm({
+    resolver: zodResolver(filterSorterSchema),
     defaultValues: {
       search: '',
       orderBy: 'created date',

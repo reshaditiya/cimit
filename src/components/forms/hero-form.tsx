@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import { standardSchemaResolver } from '@hookform/resolvers/standard-schema';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { insertLinkSchema } from '@/lib/zod-schemas';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
@@ -23,8 +23,8 @@ export default function HeroForm({
   onSubmit?: (params: TInsertLinkSchema) => void;
 }) {
   const inputLinkRef = useRef<HTMLInputElement>(null);
-  const form = useForm<TInsertLinkSchema>({
-    resolver: standardSchemaResolver(insertLinkSchema),
+  const form = useForm({
+    resolver: zodResolver(insertLinkSchema),
     defaultValues: {
       longLink: '',
     },
