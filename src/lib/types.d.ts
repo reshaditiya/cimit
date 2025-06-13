@@ -7,8 +7,8 @@ import {
   resPostLinkSchema,
 } from '@/lib/zod-schemas/link';
 
-export type TReqGetLink = z.infer<typeof reqGetLinkSchema>;
-export type TReqPostLink = z.infer<typeof reqPostLinkSchema>;
-export type TReqUpdateLink = z.infer<typeof reqUpdateLinkSchema>;
-export type TResGetLink = z.infer<typeof resGetLinkSchema>;
-export type TResPostLink = z.infer<typeof resPostLinkSchema>;
+export type ReqGetLink = z.infer<typeof reqGetLinkSchema>;
+export type ReqPostLink = z.infer<typeof reqPostLinkSchema>;
+export type ReqUpdateLink = z.infer<typeof reqUpdateLinkSchema>;
+export type ResGetLink = z.infer<typeof resGetLinkSchema>;
+export type ResPostLink = z.infer<typeof resPostLinkSchema>;

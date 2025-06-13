@@ -6,7 +6,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '../ui/dialog';
-import { TResGetLink, TReqUpdateLink } from '@/lib/types';
+import type { ResGetLink, ReqUpdateLink } from '@/lib/types';
 import { FC } from 'react';
 import { DialogProps } from '@radix-ui/react-dialog';
 import { useFormatter } from 'next-intl';
@@ -19,8 +19,8 @@ export default function EditLinkModal({
   linkData,
   ...props
 }: React.ComponentProps<FC<DialogProps>> & {
-  linkData: TResGetLink;
-  onSubmit: SubmitHandler<TReqUpdateLink>;
+  linkData: ResGetLink;
+  onSubmit: SubmitHandler<ReqUpdateLink>;
   onDelete: VoidFunction;
 }) {
   const format = useFormatter();

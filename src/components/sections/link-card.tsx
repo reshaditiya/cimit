@@ -1,4 +1,4 @@
-import { TResGetLink } from '@/lib/types';
+import type { ResGetLink } from '@/lib/types';
 import SectionTitle from '../common/section-title';
 import { useFormatter, useTranslations } from 'next-intl';
 import { Button } from '../ui/button';
@@ -9,9 +9,9 @@ export function LinkCard({
   onCopyShortLink = () => {},
   onOptionsClick = () => {},
   ...link
-}: TResGetLink & {
+}: ResGetLink & {
   onCopyShortLink: (shortLink?: string) => void;
-  onOptionsClick: (data: TResGetLink) => void;
+  onOptionsClick: (data: ResGetLink) => void;
 }) {
   const format = useFormatter();
   const t = useTranslations('link-list');

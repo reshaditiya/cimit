@@ -1,11 +1,11 @@
-import { TReqPostLink, TResPostLink } from '@/lib/types';
+import type { ReqPostLink, ResPostLink } from '@/lib/types';
 import { links } from '../db/schemas';
 import db from '../db/drizzle-client';
 import { nanoid } from 'nanoid';
 
 export async function createShortLink(
-  args: TReqPostLink
-): Promise<TResPostLink> {
+  args: ReqPostLink
+): Promise<ResPostLink> {
   const shortLink = nanoid(15);
   const longLink = args.longLink;
 

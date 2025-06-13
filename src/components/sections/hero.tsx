@@ -3,12 +3,12 @@ import { useTheme } from 'next-themes';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import HeroForm from '../forms/hero-form';
-import { TReqPostLink } from '@/lib/types';
+import type { ReqPostLink } from '@/lib/types';
 
 export default function Hero({
   onSubmit = () => {},
 }: {
-  onSubmit?: (params: TReqPostLink) => void;
+  onSubmit?: (params: ReqPostLink) => void;
 }) {
   const { theme } = useTheme();
   const t = useTranslations('hero');

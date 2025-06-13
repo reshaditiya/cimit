@@ -14,7 +14,7 @@ import {
   SelectValue,
 } from '../ui/select';
 import { Button } from '../ui/button';
-import { TReqGetLink } from '@/lib/types';
+import type { ReqGetLink } from '@/lib/types';
 import { useDebouncedCallback, useDidUpdate } from '@mantine/hooks';
 import { Tabs, TabsList, TabsTrigger } from '../ui/tabs';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -22,7 +22,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 export default function FilterSorter({
   onChange = () => {},
 }: {
-  onChange: (params: TReqGetLink) => void;
+  onChange: (params: ReqGetLink) => void;
 }) {
   const t = useTranslations('filter-sorter');
   const form = useForm({
@@ -36,7 +36,7 @@ export default function FilterSorter({
     },
   });
   const formState = form.watch();
-  const onChangeDebounced = useDebouncedCallback((formState: TReqGetLink) => {
+  const onChangeDebounced = useDebouncedCallback((formState: ReqGetLink) => {
     onChange(formState);
   }, 400);
 
@@ -126,7 +126,7 @@ export default function FilterSorter({
           </div>
           <Tabs
             onValueChange={(value) =>
-              form.setValue('visibility', value as TReqGetLink['visibility'])
+              form.setValue('visibility', value as ReqGetLink['visibility'])
             }
             value={formState.visibility}
           >
@@ -138,7 +138,7 @@ export default function FilterSorter({
           </Tabs>
           <Tabs
             onValueChange={(value) =>
-              form.setValue('expiry', value as TReqGetLink['expiry'])
+              form.setValue('expiry', value as ReqGetLink['expiry'])
             }
             value={formState.expiry}
           >

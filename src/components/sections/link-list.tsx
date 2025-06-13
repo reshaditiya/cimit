@@ -1,8 +1,8 @@
 import { LinkCard } from './link-card';
 import { CircleHelp, VenetianMask } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { LinkListState } from './link-list-state';
-import { TResGetLink } from '@/lib/types';
+import { CardState } from '../common/card-state';
+import type { ResGetLink } from '@/lib/types';
 import CardContainer from '../common/card-container';
 
 export default function LinkList({
@@ -11,7 +11,7 @@ export default function LinkList({
   onShortLinkClick = () => {},
   onOptionsClick = () => {},
 }: {
-  data: TResGetLink[];
+  data: ResGetLink[];
   isLogin: boolean;
   onShortLinkClick: () => void;
   onOptionsClick: () => void;
@@ -20,8 +20,8 @@ export default function LinkList({
 
   if (!isLogin) {
     return (
-      <LinkListState
-        icon={<VenetianMask className="size-9 lg:size-12" />}
+      <CardState
+        icon={VenetianMask}
         title={t('title-anonymous')}
         description={t('description-anonymous')}
       />
@@ -30,8 +30,8 @@ export default function LinkList({
 
   if (data.length === 0) {
     return (
-      <LinkListState
-        icon={<CircleHelp className="size-9 lg:size-12" />}
+      <CardState
+        icon={CircleHelp}
         title={t('title-empty')}
         description={t('description-empty')}
       />

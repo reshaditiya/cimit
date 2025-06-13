@@ -12,7 +12,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { reqUpdateLinkSchema } from '@/lib/zod-schemas/link';
 import { Input, PasswordInput } from '../ui/input';
 import { DatePicker } from '../ui/date-picker';
-import { TResGetLink, TReqUpdateLink } from '@/lib/types';
+import type { ResGetLink, ReqUpdateLink } from '@/lib/types';
 import { Button } from '../ui/button';
 import { isBefore } from 'date-fns';
 import ConfirmButton from '../ui/confirm-button';
@@ -23,8 +23,8 @@ type TEditLinkFormProps = Omit<
   DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement>,
   'onSubmit'
 > & {
-  linkData: TResGetLink;
-  onSubmit: SubmitHandler<TReqUpdateLink>;
+  linkData: ResGetLink;
+  onSubmit: SubmitHandler<ReqUpdateLink>;
   onDelete: VoidFunction;
 };
 

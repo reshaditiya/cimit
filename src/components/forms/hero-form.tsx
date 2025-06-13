@@ -15,12 +15,12 @@ import {
   FormMessage,
 } from '../ui/form';
 import { useTranslations } from 'next-intl';
-import { TReqPostLink } from '@/lib/types';
+import type { ReqPostLink } from '@/lib/types';
 
 export default function HeroForm({
   onSubmit = () => {},
 }: {
-  onSubmit?: (params: TReqPostLink) => void;
+  onSubmit?: (params: ReqPostLink) => void;
 }) {
   const inputLinkRef = useRef<HTMLInputElement>(null);
   const form = useForm({
