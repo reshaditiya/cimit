@@ -51,3 +51,7 @@ export const resGetLinkSchema = z.object({
 export const resPostLinkSchema = z.object({
   shortLink: z.string(),
 });
+
+export const reqGetRedirectSchema = z.object({
+  password: z.string().min(4, 'i believe this password is too short'),
+});

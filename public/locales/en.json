@@ -44,5 +44,17 @@
   "link-shortened-modal": {
     "description": "ur link is automatically copied but incase u want to see again isokayy here it is",
     "title": "boom! ur link is shrtn."
+  },
+  "redirecting": {
+    "description": "chill, it's not going to be long if it is i am so sorry for your convenience.",
+    "title": "redirecting..."
+  },
+  "password-guard": {
+    "title": "show ur true self",
+    "description": "this resource is not for everybody, prove that u r not everybody."
+  },
+  "not-found": {
+    "title": "what u lookin for???",
+    "description": "i can't give you something that doesn't exist, sort your mind, get some fresh air, touch grass, relax, and try again."
   }
 }
