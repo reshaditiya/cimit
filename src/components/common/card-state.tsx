@@ -17,6 +17,7 @@ export function CardState({
   title,
   description,
   className,
+  children,
 }: CardStateProps) {
   const IconComponent = icon;
 
@@ -32,6 +33,7 @@ export function CardState({
         <SectionTitle>{title}</SectionTitle>
         <p>{description}</p>
       </div>
+      {children}
     </CardContainer>
   );
 }
