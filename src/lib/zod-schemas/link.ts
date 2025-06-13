@@ -52,7 +52,7 @@ export const resPostLinkSchema = z.object({
   shortLink: z.string(),
 });
 
-export const reqGetRedirectSchema = z.object({
+export const reqGetProtectedRedirectSchema = z.object({
   password: z
     .string({ message: 'again u need to prove urself, fill it' })
     .min(4, 'i believe this password is too short'),

@@ -10,8 +10,8 @@ import {
 } from '../ui/form';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { reqGetRedirectSchema } from '@/lib/zod-schemas/link';
-import { ReqGetRedirect } from '@/lib/types';
+import { reqGetProtectedRedirectSchema } from '@/lib/zod-schemas/link';
+import { ReqGetProtectedRedirect } from '@/lib/types';
 import { PasswordInput } from '../ui/input';
 import { Button } from '../ui/button';
 import { useTranslations } from 'next-intl';
@@ -19,10 +19,10 @@ import { useTranslations } from 'next-intl';
 export default function PasswordGuard({
   onSubmit,
 }: {
-  onSubmit: SubmitHandler<ReqGetRedirect>;
+  onSubmit: SubmitHandler<ReqGetProtectedRedirect>;
 }) {
   const t = useTranslations('password-guard');
-  const form = useForm({ resolver: zodResolver(reqGetRedirectSchema) });
+  const form = useForm({ resolver: zodResolver(reqGetProtectedRedirectSchema) });
 
   return (
     <CardState
