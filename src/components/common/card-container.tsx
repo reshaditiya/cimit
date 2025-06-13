@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import { ElementType, ComponentPropsWithoutRef } from 'react';
 
-type CardContainerProps<T extends ElementType> = {
+export type CardContainerProps<T extends ElementType> = {
   as?: T;
   className?: string;
   children?: React.ReactNode;
