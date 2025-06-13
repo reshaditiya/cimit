@@ -1,7 +1,13 @@
 import { LockIcon } from 'lucide-react';
 import { CardState } from '../common/card-state';
 import { Ripple } from '../magicui/ripple';
-import { Form, FormControl, FormField, FormItem } from '../ui/form';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from '../ui/form';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { reqGetRedirectSchema } from '@/lib/zod-schemas/link';
@@ -36,10 +42,11 @@ export default function PasswordGuard({
               control={form.control}
               name="password"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="text-left">
                   <FormControl>
-                    <PasswordInput {...field} autoComplete="off" />
+                    <PasswordInput {...field} autoComplete="off" className='w-xs' />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />

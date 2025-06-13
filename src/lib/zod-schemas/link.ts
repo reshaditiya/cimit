@@ -53,5 +53,7 @@ export const resPostLinkSchema = z.object({
 });
 
 export const reqGetRedirectSchema = z.object({
-  password: z.string().min(4, 'i believe this password is too short'),
+  password: z
+    .string({ message: 'again u need to prove urself, fill it' })
+    .min(4, 'i believe this password is too short'),
 });
