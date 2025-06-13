@@ -3,6 +3,7 @@ import { Hono } from 'hono';
 import { describeRoute } from 'hono-openapi';
 import { resolver, validator } from 'hono-openapi/zod';
 import { createShortLink } from '../services/link';
+import status from 'http-status';
 
 const appLink = new Hono();
 
@@ -12,7 +13,7 @@ appLink.post(
     tags: ['link'],
     description: 'post and shorten a link',
     responses: {
-      200: {
+      [status.OK]: {
         description: 'link successfully shorten',
         content: {
           'application/json': { schema: resolver(resPostLinkSchema) },
