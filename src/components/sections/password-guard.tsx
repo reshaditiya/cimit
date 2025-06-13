@@ -15,14 +15,18 @@ import { ReqGetProtectedRedirect } from '@/lib/types';
 import { PasswordInput } from '../ui/input';
 import { Button } from '../ui/button';
 import { useTranslations } from 'next-intl';
+import { useFocusOnMount } from '@/lib/hooks';
 
 export default function PasswordGuard({
   onSubmit,
 }: {
   onSubmit: SubmitHandler<ReqGetProtectedRedirect>;
 }) {
+  const focusRef = useFocusOnMount();
   const t = useTranslations('password-guard');
-  const form = useForm({ resolver: zodResolver(reqGetProtectedRedirectSchema) });
+  const form = useForm({
+    resolver: zodResolver(reqGetProtectedRedirectSchema),
+  });
 
   return (
     <CardState
@@ -44,7 +48,12 @@ export default function PasswordGuard({
               render={({ field }) => (
                 <FormItem className="text-left">
                   <FormControl>
-                    <PasswordInput {...field} autoComplete="off" className='w-xs' />
+                    <PasswordInput
+                      {...field}
+                      ref={focusRef}
+                      autoComplete="off"
+                      className="w-xs"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

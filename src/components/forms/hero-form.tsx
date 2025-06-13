@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { reqPostLinkSchema } from '@/lib/zod-schemas/link';
@@ -16,13 +15,14 @@ import {
 } from '../ui/form';
 import { useTranslations } from 'next-intl';
 import type { ReqPostLink } from '@/lib/types';
+import { useFocusOnMount } from '@/lib/hooks';
 
 export default function HeroForm({
   onSubmit = () => {},
 }: {
   onSubmit?: (params: ReqPostLink) => void;
 }) {
-  const inputLinkRef = useRef<HTMLInputElement>(null);
+  const focusRef = useFocusOnMount();
   const form = useForm({
     resolver: zodResolver(reqPostLinkSchema),
     defaultValues: {
@@ -30,12 +30,6 @@ export default function HeroForm({
     },
   });
   const t = useTranslations('hero-form');
-
-  useEffect(() => {
-    if (inputLinkRef.current) {
-      inputLinkRef.current.focus();
-    }
-  }, []);
 
   return (
     <Form {...form}>
@@ -51,6 +45,7 @@ export default function HeroForm({
               <FormControl>
                 <Input
                   {...field}
+                  ref={focusRef}
                   placeholder={t('paste-long-form')}
                   className="max-w-md"
                   autoComplete="off"
