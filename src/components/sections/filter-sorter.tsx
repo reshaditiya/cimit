@@ -3,7 +3,7 @@ import CardContainer from '../common/card-container';
 import SectionTitle from '../common/section-title';
 import { InputWithIcons } from '../ui/input';
 import { useForm } from 'react-hook-form';
-import { filterSorterSchema } from '@/lib/zod-schemas';
+import { reqGetLinkSchema } from '@/lib/zod-schemas/link';
 import { Form, FormControl, FormField, FormItem } from '../ui/form';
 import { ChevronDown, ChevronUp, Search, X } from 'lucide-react';
 import {
@@ -14,20 +14,19 @@ import {
   SelectValue,
 } from '../ui/select';
 import { Button } from '../ui/button';
-import { TFilterSorterSchema } from '@/lib/types';
+import { TReqGetLink } from '@/lib/types';
 import { useDebouncedCallback, useDidUpdate } from '@mantine/hooks';
 import { Tabs, TabsList, TabsTrigger } from '../ui/tabs';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 
 export default function FilterSorter({
   onChange = () => {},
 }: {
-  onChange: (params: z.infer<typeof filterSorterSchema>) => void;
+  onChange: (params: TReqGetLink) => void;
 }) {
   const t = useTranslations('filter-sorter');
   const form = useForm({
-    resolver: zodResolver(filterSorterSchema),
+    resolver: zodResolver(reqGetLinkSchema),
     defaultValues: {
       search: '',
       orderBy: 'created date',
@@ -37,12 +36,9 @@ export default function FilterSorter({
     },
   });
   const formState = form.watch();
-  const onChangeDebounced = useDebouncedCallback(
-    (formState: TFilterSorterSchema) => {
-      onChange(formState);
-    },
-    400
-  );
+  const onChangeDebounced = useDebouncedCallback((formState: TReqGetLink) => {
+    onChange(formState);
+  }, 400);
 
   useDidUpdate(() => {
     onChangeDebounced(formState);
@@ -130,10 +126,7 @@ export default function FilterSorter({
           </div>
           <Tabs
             onValueChange={(value) =>
-              form.setValue(
-                'visibility',
-                value as TFilterSorterSchema['visibility']
-              )
+              form.setValue('visibility', value as TReqGetLink['visibility'])
             }
             value={formState.visibility}
           >
@@ -145,7 +138,7 @@ export default function FilterSorter({
           </Tabs>
           <Tabs
             onValueChange={(value) =>
-              form.setValue('expiry', value as TFilterSorterSchema['expiry'])
+              form.setValue('expiry', value as TReqGetLink['expiry'])
             }
             value={formState.expiry}
           >

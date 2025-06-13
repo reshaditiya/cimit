@@ -2,7 +2,7 @@ import { LinkCard } from './link-card';
 import { CircleHelp, VenetianMask } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { LinkListState } from './link-list-state';
-import { TSelectLink } from '@/lib/types';
+import { TResGetLink } from '@/lib/types';
 import CardContainer from '../common/card-container';
 
 export default function LinkList({
@@ -11,7 +11,7 @@ export default function LinkList({
   onShortLinkClick = () => {},
   onOptionsClick = () => {},
 }: {
-  data: TSelectLink[];
+  data: TResGetLink[];
   isLogin: boolean;
   onShortLinkClick: () => void;
   onOptionsClick: () => void;

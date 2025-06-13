@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { insertLinkSchema } from '@/lib/zod-schemas';
+import { reqPostLinkSchema } from '@/lib/zod-schemas/link';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import {
@@ -15,16 +15,16 @@ import {
   FormMessage,
 } from '../ui/form';
 import { useTranslations } from 'next-intl';
-import { TInsertLinkSchema } from '@/lib/types';
+import { TReqPostLink } from '@/lib/types';
 
 export default function HeroForm({
   onSubmit = () => {},
 }: {
-  onSubmit?: (params: TInsertLinkSchema) => void;
+  onSubmit?: (params: TReqPostLink) => void;
 }) {
   const inputLinkRef = useRef<HTMLInputElement>(null);
   const form = useForm({
-    resolver: zodResolver(insertLinkSchema),
+    resolver: zodResolver(reqPostLinkSchema),
     defaultValues: {
       longLink: '',
     },

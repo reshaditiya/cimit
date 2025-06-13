@@ -9,10 +9,10 @@ import {
   FormMessage,
 } from '../ui/form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { updateLinkSchema } from '@/lib/zod-schemas';
+import { reqUpdateLinkSchema } from '@/lib/zod-schemas/link';
 import { Input, PasswordInput } from '../ui/input';
 import { DatePicker } from '../ui/date-picker';
-import { TSelectLink, TUpdateLinkSchema } from '@/lib/types';
+import { TResGetLink, TReqUpdateLink } from '@/lib/types';
 import { Button } from '../ui/button';
 import { isBefore } from 'date-fns';
 import ConfirmButton from '../ui/confirm-button';
@@ -23,8 +23,8 @@ type TEditLinkFormProps = Omit<
   DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement>,
   'onSubmit'
 > & {
-  linkData: TSelectLink;
-  onSubmit: SubmitHandler<TUpdateLinkSchema>;
+  linkData: TResGetLink;
+  onSubmit: SubmitHandler<TReqUpdateLink>;
   onDelete: VoidFunction;
 };
 
@@ -36,7 +36,7 @@ export default function EditLinkForm({
   ...props
 }: TEditLinkFormProps) {
   const form = useForm({
-    resolver: zodResolver(updateLinkSchema),
+    resolver: zodResolver(reqUpdateLinkSchema),
     defaultValues: {
       expiredAt: linkData.expiredAt,
       password: linkData.password,

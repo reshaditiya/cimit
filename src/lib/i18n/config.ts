@@ -1,5 +1,5 @@
 import { RequestConfig } from 'next-intl/server';
-import defaultMessages from '../../public/locales/en.json';
+import defaultMessages from '../../../public/locales/en.json';
 
 const locale = 'en';
 

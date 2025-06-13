@@ -3,7 +3,7 @@ import { montserrat } from '../src/lib/fonts';
 import { ThemeProvider } from '../src/components/providers/theme-provider';
 import { StorybookProvider } from '../src/components/providers/storybook-provider';
 import { NextIntlClientProvider } from 'next-intl';
-import intlConfig from '../src/i18n/config';
+import intlConfig from '../src/lib/i18n/config';
 import '../src/styles/globals.css';
 
 const preview: Preview = {

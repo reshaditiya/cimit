@@ -1,12 +1,12 @@
 import { z } from 'zod';
 import {
-  filterSorterSchema,
-  linkShortSchema,
-  updateLinkSchema,
-} from './zod-schemas';
-import { links } from '@/db/schemas';
+  reqGetLinkSchema,
+  reqPostLinkSchema,
+  reqUpdateLinkSchema,
+  resGetLinkSchema,
+} from '@/lib/zod-schemas/link';
 
-export type TFilterSorterSchema = z.infer<typeof filterSorterSchema>;
-export type TSelectLink = typeof links.$inferSelect;
-export type TInsertLinkSchema = z.infer<typeof linkShortSchema>;
-export type TUpdateLinkSchema = z.infer<typeof updateLinkSchema>;
+export type TReqGetLink = z.infer<typeof reqGetLinkSchema>;
+export type TReqPostLink = z.infer<typeof reqPostLinkSchema>;
+export type TReqUpdateLink = z.infer<typeof reqUpdateLinkSchema>;
+export type TResGetLink = z.infer<typeof resGetLinkSchema>;
