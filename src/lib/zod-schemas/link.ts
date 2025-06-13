@@ -47,3 +47,7 @@ export const resGetLinkSchema = z.object({
   createdAt: z.date(),
   password: z.string().optional(),
 });
+
+export const resPostLinkSchema = z.object({
+  shortLink: z.string(),
+});
