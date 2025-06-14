@@ -14,6 +14,7 @@ export const env = createEnv({
     NODE_ENV: z
       .enum(['development', 'test', 'production'])
       .default('development'),
+    CRYPTR_SALT: z.string(),
   },
   client: { NEXT_PUBLIC_DOMAIN_NAME: z.string() },
   runtimeEnv: {
@@ -24,6 +25,7 @@ export const env = createEnv({
     XATA_DB_URL: process.env.XATA_DB_URL,
     NEXT_PUBLIC_DOMAIN_NAME: process.env.NEXT_PUBLIC_DOMAIN_NAME,
     NODE_ENV: process.env.NODE_ENV,
+    CRYPTR_SALT: process.env.CRYPTRO_KEY,
   },
   emptyStringAsUndefined: true,
 });
