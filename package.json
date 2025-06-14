@@ -30,6 +30,7 @@
     "@xata.io/client": "^0.0.0-next.v93343b9646f57a1e5c51c35eccf0767c2bb80baa",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "cryptr": "^6.3.0",
     "date-fns": "^3.6.0",
     "drizzle-orm": "^0.44.0",
     "hono": "^4.7.11",
