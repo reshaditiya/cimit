@@ -7,8 +7,8 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function cryptr() {
-  const cryptr = new Cryptr(env.CRYPTR_SALT);
+export function cryptr(password: string) {
+  const cryptr = new Cryptr(env.CRYPTR_SALT + password);
 
   return cryptr;
 }
