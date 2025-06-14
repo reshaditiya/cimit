@@ -25,7 +25,7 @@ export const env = createEnv({
     XATA_DB_URL: process.env.XATA_DB_URL,
     NEXT_PUBLIC_DOMAIN_NAME: process.env.NEXT_PUBLIC_DOMAIN_NAME,
     NODE_ENV: process.env.NODE_ENV,
-    CRYPTR_SALT: process.env.CRYPTRO_KEY,
+    CRYPTR_SALT: process.env.CRYPTR_SALT,
   },
   emptyStringAsUndefined: true,
 });
