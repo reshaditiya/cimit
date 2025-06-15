@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { useFormatter, useTranslations } from 'next-intl';
 import CopyLinkBtn from '../common/copy-link-btn';
 import SectionTitle from '../common/section-title';
 import {
@@ -17,12 +17,15 @@ export default function LinkShortenedModal({
   link,
   onCopyLink,
   children,
+  expiredAt,
   ...props
 }: React.ComponentProps<FC<DialogProps>> & {
   link: string;
   onCopyLink: (link: string) => void;
+  expiredAt: Date;
 }) {
   const t = useTranslations('link-shortened-modal');
+  const format = useFormatter();
 
   return (
     <Dialog {...props}>
@@ -33,10 +36,25 @@ export default function LinkShortenedModal({
             <SectionTitle as="span">{t('title')}</SectionTitle>
           </DialogTitle>
           <DialogDescription className="text-center">
-            {t('description')}
+            {t.rich('description', {
+              expiredAt: format.dateTime(expiredAt, {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric',
+              }),
+              warning: (warning) => (
+                <span className="text-warning">{warning}</span>
+              ),
+            })}
           </DialogDescription>
         </DialogHeader>
-        <QRCodeSVG value={link} height={240} width={240} className="mt-4" />
+        <QRCodeSVG
+          value={link}
+          height={240}
+          width={240}
+          className="mt-4"
+          aria-label={link}
+        />
         <CopyLinkBtn onCopyLink={onCopyLink} link={link} />
       </DialogContent>
     </Dialog>

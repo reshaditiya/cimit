@@ -42,7 +42,7 @@
     "options-btn": "options"
   },
   "link-shortened-modal": {
-    "description": "ur link is automatically copied but incase u want to see again isokayy here it is",
+    "description": "wisely use it before <warning>expired at {expiredAt}</warning>, login and create link to edit the expiry date.",
     "title": "boom! ur link is shrtn."
   },
   "redirecting": {

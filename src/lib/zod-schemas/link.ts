@@ -50,6 +50,7 @@ export const resGetLinkSchema = z.object({
 
 export const resPostLinkSchema = z.object({
   shortLink: z.string(),
+  expiredAt: z.date(),
 });
 
 export const reqGetProtectedRedirectSchema = z.object({

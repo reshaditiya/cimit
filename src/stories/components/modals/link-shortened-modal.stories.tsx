@@ -11,6 +11,7 @@ const meta = {
     link: env.NEXT_PUBLIC_DOMAIN_NAME,
     onCopyLink: fn(),
     children: 'Open',
+    expiredAt: new Date(),
   },
 } satisfies Meta<typeof LinkShortenedModal>;
 
