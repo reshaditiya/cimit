@@ -40,27 +40,28 @@ export default function PasswordGuard({
         mainCircleSize={80}
       />
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-          <div className="flex gap-4">
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem className="text-left">
-                  <FormControl>
-                    <PasswordInput
-                      {...field}
-                      ref={focusRef}
-                      autoComplete="off"
-                      className="w-xs"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button type="submit">unlock</Button>
-          </div>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="flex w-full flex-col flex-wrap justify-center gap-4 md:flex-row"
+        >
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem className="max-w-xs flex-1 text-left">
+                <FormControl>
+                  <PasswordInput
+                    {...field}
+                    ref={focusRef}
+                    autoComplete="off"
+                    placeholder="enter ur super duper secret password"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit">unlock</Button>
         </form>
       </Form>
     </CardState>

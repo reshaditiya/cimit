@@ -1,24 +1,15 @@
 import { useFormatter, useTranslations } from 'next-intl';
 import CopyLinkBtn from '../common/copy-link-btn';
-import SectionTitle from '../common/section-title';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '../ui/dialog';
 import { QRCodeSVG } from 'qrcode.react';
 import { FC } from 'react';
 import { DialogProps } from '@radix-ui/react-dialog';
+import ResponsiveDialog from '../ui/responsive-dialog';
 
 export default function LinkShortenedModal({
   link,
   onCopyLink,
   children,
   expiredAt,
-  ...props
 }: React.ComponentProps<FC<DialogProps>> & {
   link: string;
   onCopyLink: (link: string) => void;
@@ -28,35 +19,22 @@ export default function LinkShortenedModal({
   const format = useFormatter();
 
   return (
-    <Dialog {...props}>
-      <DialogTrigger>{children}</DialogTrigger>
-      <DialogContent className="flex w-90 flex-col items-center">
-        <DialogHeader className="items-center gap-0">
-          <DialogTitle className="text-center">
-            <SectionTitle as="span">{t('title')}</SectionTitle>
-          </DialogTitle>
-          <DialogDescription className="text-center">
-            {t.rich('description', {
-              expiredAt: format.dateTime(expiredAt, {
-                day: '2-digit',
-                month: 'short',
-                year: 'numeric',
-              }),
-              warning: (warning) => (
-                <span className="text-warning">{warning}</span>
-              ),
-            })}
-          </DialogDescription>
-        </DialogHeader>
-        <QRCodeSVG
-          value={link}
-          height={240}
-          width={240}
-          className="mt-4"
-          aria-label={link}
-        />
+    <ResponsiveDialog
+      trigger={children}
+      title={t('title')}
+      description={t.rich('description', {
+        expiredAt: format.dateTime(expiredAt, {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric',
+        }),
+        warning: (warning) => <span className="text-warning">{warning}</span>,
+      })}
+    >
+      <div className="flex flex-col items-center">
+        <QRCodeSVG value={link} className="mt-4 size-50" aria-label={link} />
         <CopyLinkBtn onCopyLink={onCopyLink} link={link} />
-      </DialogContent>
-    </Dialog>
+      </div>
+    </ResponsiveDialog>
   );
 }

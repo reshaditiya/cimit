@@ -56,5 +56,10 @@
   "not-found": {
     "title": "what u lookin for???",
     "description": "i can't give you something that doesn't exist, sort your mind, get some fresh air, touch grass, relax, and try again."
+  },
+  "edit-link-modal": {
+    "title": "edit link",
+    "description": "{totalVisited} visited since created {createdAt}",
+    "qr-description": "the qr will refreshed after u save the changes"
   }
 }

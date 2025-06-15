@@ -1,49 +1,45 @@
 import { SubmitHandler } from 'react-hook-form';
 import EditLinkForm from '../forms/edit-link-form';
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogTrigger,
-} from '../ui/dialog';
 import type { ResGetLink, ReqUpdateLink } from '@/lib/types';
 import { FC } from 'react';
 import { DialogProps } from '@radix-ui/react-dialog';
-import { useFormatter } from 'next-intl';
+import { useFormatter, useTranslations } from 'next-intl';
 import { QRCodeSVG } from 'qrcode.react';
+import ResponsiveDialog from '../ui/responsive-dialog';
 
 export default function EditLinkModal({
   onSubmit,
   onDelete,
   children,
   linkData,
-  ...props
 }: React.ComponentProps<FC<DialogProps>> & {
   linkData: ResGetLink;
   onSubmit: SubmitHandler<ReqUpdateLink>;
   onDelete: VoidFunction;
 }) {
   const format = useFormatter();
+  const t = useTranslations('edit-link-modal');
 
   return (
-    <Dialog {...props}>
-      <DialogTrigger>{children}</DialogTrigger>
-      <DialogContent className="flex w-90 flex-col items-center gap-4">
-        {/* for screen reader only */}
-        <DialogTitle className="sr-only hidden">link edit</DialogTitle>
+    <ResponsiveDialog
+      title={<span className="sr-only">{t('title')}</span>}
+      trigger={children}
+      drawerProps={{ snapPoints: [1] }}
+    >
+      <div className="flex flex-col items-center gap-4">
         <p className="text-center text-sm">
-          {format.number(linkData.totalVisited)} visited since created{' '}
-          {format.dateTime(linkData.createdAt, {
-            day: '2-digit',
-            month: 'short',
-            year: 'numeric',
+          {t('description', {
+            totalVisited: format.number(linkData.totalVisited),
+            createdAt: format.dateTime(linkData.createdAt, {
+              day: '2-digit',
+              month: 'short',
+              year: 'numeric',
+            }),
           })}
         </p>
         <div className="flex flex-col items-center gap-2">
           <QRCodeSVG value={linkData.shortLink} height={140} width={140} />
-          <p className="text-muted-foreground text-xs">
-            the qr will refreshed after u save the changes
-          </p>
+          <p className="text-muted-foreground text-xs">{t('qr-description')}</p>
         </div>
         <EditLinkForm
           onSubmit={onSubmit}
@@ -51,7 +47,7 @@ export default function EditLinkModal({
           linkData={linkData}
           className="w-full"
         />
-      </DialogContent>
-    </Dialog>
+      </div>
+    </ResponsiveDialog>
   );
 }
