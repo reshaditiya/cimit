@@ -11,7 +11,7 @@ const app = new Hono().basePath('/api');
 
 // routes
 app.route('link', appLink);
-app.route('redirect', appRedirect)
+app.route('redirect', appRedirect);
 
 // docs
 app.get(

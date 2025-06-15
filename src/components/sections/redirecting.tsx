@@ -13,7 +13,10 @@ export default function Redirecting() {
       title={t('title')}
       description={t('description')}
     >
-      <Ripple effectClassName="top-[40px] md:top-[96px] lg:top-[182px]" mainCircleSize={80} />
+      <Ripple
+        effectClassName="top-[40px] md:top-[96px] lg:top-[182px]"
+        mainCircleSize={80}
+      />
     </CardState>
   );
 }
