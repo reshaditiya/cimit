@@ -57,3 +57,17 @@ export const reqGetProtectedRedirectSchema = z.object({
     .string({ message: 'again u need to prove urself, fill it' })
     .min(4, 'i believe this password is too short'),
 });
+
+export const reqPostRedirectSchema = z.object({
+  shortLink: z.string(),
+  password: z.string().optional(),
+});
+
+export const resPostMidRedirectSchema = z.object({
+  status: z.enum(['ok', 'not found', 'forbidden']),
+  longLink: z.string().optional(),
+});
+
+export const resStandardMessageSchema = z.object({
+  message: z.string(),
+});

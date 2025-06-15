@@ -3,6 +3,7 @@ import { Hono } from 'hono';
 import { openAPISpecs } from 'hono-openapi';
 import { handle } from 'hono/vercel';
 import { swaggerUI } from '@hono/swagger-ui';
+import appRedirect from '@/server/routes/redirect';
 
 export const runtime = 'edge';
 
@@ -10,6 +11,7 @@ const app = new Hono().basePath('/api');
 
 // routes
 app.route('link', appLink);
+app.route('redirect', appRedirect)
 
 // docs
 app.get(
