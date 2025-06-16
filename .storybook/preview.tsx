@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import intlConfig from '../src/lib/i18n/config';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { Toaster } from '../src/components/ui/sonner';
 import '../src/styles/globals.css';
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const preview: Preview = {
                   <Story />
                 </div>
               </div>
+              <Toaster />
               <ReactQueryDevtools initialIsOpen={false} />
             </QueryClientProvider>
           </NextIntlClientProvider>

@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getLocale } from 'next-intl/server';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { Toaster } from '@/components/ui/sonner';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -37,6 +38,7 @@ export default async function RootLayout({
           <NextIntlClientProvider>
             <QueryClientProvider client={queryClient}>
               {children}
+              <Toaster />
               <ReactQueryDevtools initialIsOpen={false} />
             </QueryClientProvider>
           </NextIntlClientProvider>
