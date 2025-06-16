@@ -37,7 +37,7 @@ const preview: Preview = {
                   <Story />
                 </div>
               </div>
-              <Toaster />
+              <Toaster position="top-center" />
               <ReactQueryDevtools initialIsOpen={false} />
             </QueryClientProvider>
           </NextIntlClientProvider>
