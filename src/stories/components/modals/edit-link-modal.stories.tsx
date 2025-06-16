@@ -1,4 +1,5 @@
 import EditLinkModal from '@/components/modals/edit-link-modal';
+import { Button } from '@/components/ui/button';
 import { linkListData } from '@/lib/mock';
 import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
@@ -10,7 +11,7 @@ const meta = {
   args: {
     onSubmit: fn(),
     onDelete: fn(),
-    children: 'Open',
+    children: <Button variant="secondary">Open</Button>,
     linkData: linkListData[0],
   },
 } satisfies Meta<typeof EditLinkModal>;

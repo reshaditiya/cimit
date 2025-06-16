@@ -38,7 +38,7 @@ export default function ResponsiveDialog({
   if (isDesktop) {
     return (
       <Dialog>
-        <DialogTrigger>{trigger}</DialogTrigger>
+        <DialogTrigger asChild>{trigger}</DialogTrigger>
         <DialogContent className="flex w-90 flex-col items-center">
           <DialogHeader className="items-center gap-0">
             <DialogTitle className="text-center">
@@ -56,7 +56,7 @@ export default function ResponsiveDialog({
 
   return (
     <Drawer {...drawerProps}>
-      <DrawerTrigger>{trigger}</DrawerTrigger>
+      <DrawerTrigger asChild>{trigger}</DrawerTrigger>
       <DrawerContent className="flex flex-col px-2 pt-0 pb-6">
         <ScrollArea className="h-100 px-4">
           <DrawerHeader>
