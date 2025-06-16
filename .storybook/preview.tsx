@@ -4,7 +4,11 @@ import { ThemeProvider } from '../src/components/providers/theme-provider';
 import { StorybookProvider } from '../src/components/providers/storybook-provider';
 import { NextIntlClientProvider } from 'next-intl';
 import intlConfig from '../src/lib/i18n/config';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import '../src/styles/globals.css';
+
+const queryClient = new QueryClient();
 
 const preview: Preview = {
   parameters: {
@@ -26,11 +30,14 @@ const preview: Preview = {
       >
         <StorybookProvider context={context}>
           <NextIntlClientProvider {...intlConfig}>
-            <div className={montserrat.variable}>
-              <div className="font-sans">
-                <Story />
+            <QueryClientProvider client={queryClient}>
+              <div className={montserrat.variable}>
+                <div className="font-sans">
+                  <Story />
+                </div>
               </div>
-            </div>
+              <ReactQueryDevtools initialIsOpen={false} />
+            </QueryClientProvider>
           </NextIntlClientProvider>
         </StorybookProvider>
       </ThemeProvider>
