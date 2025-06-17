@@ -2,14 +2,12 @@ import type { Preview } from '@storybook/react';
 import { montserrat } from '../src/lib/fonts';
 import { ThemeProvider } from '../src/components/providers/theme-provider';
 import { StorybookProvider } from '../src/components/providers/storybook-provider';
+import TanstackQueryProvider from '../src/components/providers/tanstack-query-provider';
 import { NextIntlClientProvider } from 'next-intl';
 import intlConfig from '../src/lib/i18n/config';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster } from '../src/components/ui/sonner';
 import '../src/styles/globals.css';
-
-const queryClient = new QueryClient();
 
 const preview: Preview = {
   parameters: {
@@ -31,7 +29,7 @@ const preview: Preview = {
       >
         <StorybookProvider context={context}>
           <NextIntlClientProvider {...intlConfig}>
-            <QueryClientProvider client={queryClient}>
+            <TanstackQueryProvider>
               <div className={montserrat.variable}>
                 <div className="font-sans">
                   <Story />
@@ -39,7 +37,7 @@ const preview: Preview = {
               </div>
               <Toaster position="top-center" />
               <ReactQueryDevtools initialIsOpen={false} />
-            </QueryClientProvider>
+            </TanstackQueryProvider>
           </NextIntlClientProvider>
         </StorybookProvider>
       </ThemeProvider>
