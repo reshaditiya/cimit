@@ -3,7 +3,11 @@
     "description": "Shrink ‘em, save ‘em, and share ‘em—without the hassle."
   },
   "account-btn": {
-    "anonymous": "anonymous"
+    "anonymous": "anonymous",
+    "login": "log In",
+    "modal-title": "identify urself",
+    "modal-desc": "living on the shade is tiring, it's time for the world know who u are.",
+    "login-google": "log in with google"
   },
   "footer": {
     "created-by": "created by <personalLink></personalLink>."
