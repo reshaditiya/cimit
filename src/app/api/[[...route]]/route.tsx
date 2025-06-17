@@ -5,10 +5,20 @@ import { handle } from 'hono/vercel';
 import { swaggerUI } from '@hono/swagger-ui';
 import appRedirect from '@/server/routes/redirect';
 import appAuth from '@/server/routes/auth';
+import { cors } from 'hono/cors';
+import { getAllowedOriginCors } from '@/lib/utils';
 
 export const runtime = 'edge';
 
 const app = new Hono().basePath('/api');
+
+// config
+app.use(
+  '*',
+  cors({
+    origin: getAllowedOriginCors(),
+  })
+);
 
 // routes
 app.route('link', appLink);

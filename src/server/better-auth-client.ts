@@ -2,11 +2,13 @@ import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { env } from '../lib/env';
 import db from '@/server/db/drizzle-client';
+import { getAllowedOriginCors } from '@/lib/utils';
 
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
     provider: 'pg',
   }),
+  trustedOrigins: getAllowedOriginCors(),
   socialProviders: {
     google: {
       clientId: env.GOOGLE_CLIENT_ID,

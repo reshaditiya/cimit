@@ -12,3 +12,11 @@ export function cryptr(password: string) {
 
   return cryptr;
 }
+
+export function getAllowedOriginCors() {
+  return [
+    'http://localhost:6006',
+    'http://localhost:3000',
+    'http://localhost:3001',
+  ];
+}
