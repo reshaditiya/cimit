@@ -3,8 +3,10 @@ import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { env } from '../lib/env';
 import db from '@/server/db/drizzle-client';
 import { getAllowedOriginCors } from '@/lib/utils';
+import { anonymous, openAPI } from 'better-auth/plugins';
 
 export const auth = betterAuth({
+  plugins: [openAPI(), anonymous()],
   database: drizzleAdapter(db, {
     provider: 'pg',
   }),

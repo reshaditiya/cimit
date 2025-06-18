@@ -22,3 +22,4 @@ export type ReqGetProtectedRedirect = z.infer<
 export type ReqPostRedirect = z.infer<typeof reqPostRedirectSchema>;
 export type ResPostMidRedirect = z.infer<typeof resPostMidRedirectSchema>;
 export type ResStandardMessage = z.infer<typeof resStandardMessageSchema>;
+export type HonoApp = typeof app;

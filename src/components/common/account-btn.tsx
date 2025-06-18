@@ -20,7 +20,7 @@ export default function AccountBtn({
   const { isPending, mutate } = useMutation({
     mutationKey: ['auth', 'login'],
     mutationFn: async () => {
-      await signIn.social({
+      signIn.social({
         provider: 'google',
       });
     },

@@ -1,10 +1,13 @@
 import { createAuthClient } from 'better-auth/react';
-import { inferAdditionalFields } from 'better-auth/client/plugins';
+import {
+  anonymousClient,
+  inferAdditionalFields,
+} from 'better-auth/client/plugins';
 import { auth } from '@/server/better-auth-client';
 import { env } from './env';
 
 export const authClient = createAuthClient({
-  plugins: [inferAdditionalFields<typeof auth>()],
+  plugins: [inferAdditionalFields<typeof auth>(), anonymousClient()],
   basePath: '/api/auth',
   baseURL: env.NEXT_PUBLIC_BACKEND_URL,
 });

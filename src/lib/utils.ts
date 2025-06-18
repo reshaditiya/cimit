@@ -2,6 +2,8 @@ import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import Cryptr from 'cryptr';
 import { env } from './env';
+import { hc } from 'hono/client';
+import { HonoApp } from './types';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -20,3 +22,12 @@ export function getAllowedOriginCors() {
     'http://localhost:3001',
   ];
 }
+
+export const client = hc<HonoApp>('http://localhost:8787/', {
+  fetch: ((input, init) => {
+    return fetch(input, {
+      ...init,
+      credentials: 'include',
+    });
+  }) satisfies typeof fetch,
+});

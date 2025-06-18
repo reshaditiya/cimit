@@ -17,6 +17,11 @@ app.use(
   '*',
   cors({
     origin: getAllowedOriginCors(),
+    allowHeaders: ['Content-Type', 'Authorization'],
+    allowMethods: ['POST', 'GET', 'OPTIONS', 'PATCH', 'PUT'],
+    exposeHeaders: ['Content-Length'],
+    maxAge: 600,
+    credentials: true,
   })
 );
 
@@ -40,7 +45,10 @@ app.get(
 app.get('/ui', swaggerUI({ url: '/api/json' }));
 
 export default app;
-export const GET = handle(app);
-export const POST = handle(app);
-export const PATCH = handle(app);
-export const DELETE = handle(app);
+const handler = handle(app);
+
+export const GET = handler;
+export const POST = handler;
+export const PATCH = handler;
+export const PUT = handler;
+export const OPTIONS = handler;
