@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 import ResponsiveDialog from '../ui/responsive-dialog';
 import { signIn } from '@/lib/auth-client';
 import { useMutation } from '@tanstack/react-query';
-import Image from 'next/image';
+import GoogleIcon from '../icons/google';
 
 export default function AccountBtn({
   variant = 'secondary',
@@ -42,7 +42,7 @@ export default function AccountBtn({
         disabled={isPending}
         onClick={() => mutate()}
       >
-        <Image src="./google.svg" alt="google" width={16} height={16} />
+        <GoogleIcon />
         {t('login-google')}
       </Button>
     </ResponsiveDialog>

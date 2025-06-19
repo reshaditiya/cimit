@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import CardContainer from '../common/card-container';
-import Image from 'next/image';
 import { Globe } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Button } from '../ui/button';
 import { env } from '@/lib/env';
+import GithubIcon from '../icons/github';
 
 export default function Footer({
   personalDomain = `https://me.${env.NEXT_PUBLIC_DOMAIN_NAME}`,
@@ -26,7 +26,7 @@ export default function Footer({
       </span>
       <div className="flex gap-2">
         <Button variant="ghost" size="icon">
-          <Image src="./github.svg" alt="github" width={20} height={20} />
+          <GithubIcon className="size-5" />
         </Button>
         <Button variant="ghost" size="icon">
           <Globe className="size-5" />
