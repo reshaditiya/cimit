@@ -7,7 +7,10 @@ import { NextIntlClientProvider } from 'next-intl';
 import intlConfig from '../src/lib/i18n/config';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster } from '../src/components/ui/sonner';
+import { initialize, mswLoader } from 'msw-storybook-addon'
 import '../src/styles/globals.css';
+
+initialize()
 
 const preview: Preview = {
   parameters: {
@@ -56,6 +59,9 @@ const preview: Preview = {
       },
     },
   },
+  loaders: [
+    mswLoader
+  ]
 };
 
 export default preview;
