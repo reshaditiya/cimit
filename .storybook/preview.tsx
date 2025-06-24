@@ -5,12 +5,11 @@ import { StorybookProvider } from '../src/components/providers/storybook-provide
 import TanstackQueryProvider from '../src/components/providers/tanstack-query-provider';
 import { NextIntlClientProvider } from 'next-intl';
 import intlConfig from '../src/lib/i18n/config';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster } from '../src/components/ui/sonner';
-import { initialize, mswLoader } from 'msw-storybook-addon'
+import { initialize, mswLoader } from 'msw-storybook-addon';
 import '../src/styles/globals.css';
 
-initialize()
+initialize();
 
 const preview: Preview = {
   parameters: {
@@ -30,20 +29,33 @@ const preview: Preview = {
         disableTransitionOnChange
         forcedTheme={context.globals.theme}
       >
-        <StorybookProvider context={context}>
-          <NextIntlClientProvider {...intlConfig}>
-            <TanstackQueryProvider>
-              <div className={montserrat.variable}>
-                <div className="font-sans">
-                  <Story />
-                </div>
-              </div>
-              <Toaster position="top-center" />
-              <ReactQueryDevtools initialIsOpen={false} />
-            </TanstackQueryProvider>
-          </NextIntlClientProvider>
-        </StorybookProvider>
+        <Story />
       </ThemeProvider>
+    ),
+    (Story, context) => (
+      <StorybookProvider context={context}>
+        <Story />
+      </StorybookProvider>
+    ),
+    (Story) => (
+      <NextIntlClientProvider {...intlConfig}>
+        <Story />
+      </NextIntlClientProvider>
+    ),
+    (Story) => (
+      <TanstackQueryProvider showDevTools={false}>
+        <Story />
+      </TanstackQueryProvider>
+    ),
+    (Story) => (
+      <>
+        <div className={montserrat.variable}>
+          <div className="font-sans">
+            <Story />
+          </div>
+        </div>
+        <Toaster position="top-center" />
+      </>
     ),
   ],
   globalTypes: {
@@ -59,9 +71,7 @@ const preview: Preview = {
       },
     },
   },
-  loaders: [
-    mswLoader
-  ]
+  loaders: [mswLoader],
 };
 
 export default preview;

@@ -7,13 +7,15 @@ const queryClient = new QueryClient();
 
 export default function TanstackQueryProvider({
   children,
+  showDevTools = true,
 }: {
   children: React.ReactNode;
+  showDevTools?: boolean;
 }) {
   return (
     <QueryClientProvider client={queryClient}>
       {children}
-      <ReactQueryDevtools initialIsOpen={false} />
+      {showDevTools && <ReactQueryDevtools initialIsOpen={false} />}
     </QueryClientProvider>
   );
 }
