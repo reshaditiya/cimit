@@ -21,6 +21,31 @@ const preview: Preview = {
     },
   },
   decorators: [
+    (Story) => (
+      <>
+        <div className={montserrat.variable}>
+          <div className="font-sans">
+            <Story />
+          </div>
+        </div>
+        <Toaster position="top-center" />
+      </>
+    ),
+    (Story) => (
+      <TanstackQueryProvider showDevTools={false}>
+        <Story />
+      </TanstackQueryProvider>
+    ),
+    (Story) => (
+      <NextIntlClientProvider {...intlConfig}>
+        <Story />
+      </NextIntlClientProvider>
+    ),
+    (Story, context) => (
+      <StorybookProvider context={context}>
+        <Story />
+      </StorybookProvider>
+    ),
     (Story, context) => (
       <ThemeProvider
         attribute="class"
@@ -31,31 +56,6 @@ const preview: Preview = {
       >
         <Story />
       </ThemeProvider>
-    ),
-    (Story, context) => (
-      <StorybookProvider context={context}>
-        <Story />
-      </StorybookProvider>
-    ),
-    (Story) => (
-      <NextIntlClientProvider {...intlConfig}>
-        <Story />
-      </NextIntlClientProvider>
-    ),
-    (Story) => (
-      <TanstackQueryProvider showDevTools={false}>
-        <Story />
-      </TanstackQueryProvider>
-    ),
-    (Story) => (
-      <>
-        <div className={montserrat.variable}>
-          <div className="font-sans">
-            <Story />
-          </div>
-        </div>
-        <Toaster position="top-center" />
-      </>
     ),
   ],
   globalTypes: {
